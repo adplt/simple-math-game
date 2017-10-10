@@ -1,16 +1,11 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- * @flow
- */
-
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import {
   Platform,
   StyleSheet,
   Text,
   View
 } from 'react-native';
+import SplashScreen from 'react-native-splash-screen';
 
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' +
@@ -20,7 +15,12 @@ const instructions = Platform.select({
 });
 
 export default class App extends Component<{}> {
-  render() {
+
+  componentDidMount () {
+    SplashScreen.hide();
+  }
+
+  render () {
     return (
       <View style={styles.container}>
         <Text style={styles.welcome}>

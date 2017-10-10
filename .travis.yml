@@ -1,0 +1,45 @@
+language: android
+matrix:
+  fast_finish: true
+  include:
+  - language: objective-c
+    osx_image: xcode8.2
+    env: DEV=IOS
+  - language: android
+    env: DEV=ANDROID
+    sudo: required
+    android:
+      components:
+      - build-tools-23.0.1
+      - android-23
+      - extra-android-m2repository
+      - extra-google-google_play_services
+      - extra-google-m2repository
+      - addon-google_apis-google-23
+      - build-tools-25.0.1
+      - android-25
+      - build-tools-26.0.1
+      - android-26
+      - android-sdk-preview-license-.+
+      - android-sdk-license-.+
+branches:
+  only:
+  - master
+before_install:
+- nvm install 6.9.5
+- node --version
+- npm install -g yarn
+install:
+- yarn
+cache:
+  directories:
+  - "./cache"
+  - "$HOME/.nvm/"
+  - "./node_modules"
+before_script:
+- "./scripts/before.sh"
+script:
+- "./scripts/build.sh"
+- rvm system
+- "./scripts/package.sh"
+- "./scripts/uploader.sh"
