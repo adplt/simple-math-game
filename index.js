@@ -1,5 +1,2 @@
-import {AppRegistry} from 'react-native';
-import App from './app/pages/Boarding/boarding.page';
-
+import App from './app/index';
 export default App;
-AppRegistry.registerComponent('GameBuatDina', () => App);
