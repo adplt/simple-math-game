@@ -4,9 +4,14 @@ import promise from 'redux-promise';
 import rootReducer from './reducers';
 
 let enhancers = [];
-const devToolsExtension = window.devToolsExtension;
-if (typeof devToolsExtension === 'function') {
-  enhancers.push(devToolsExtension());
+
+if (typeof window !== 'undefined') {
+  if ('devToolsExtension' in window) {
+    const devToolsExtension = window.devToolsExtension;
+    if (typeof devToolsExtension === 'function') {
+      enhancers.push(devToolsExtension());
+    }
+  }
 }
 
 const enhancer = compose(applyMiddleware(thunk, promise), ...enhancers);

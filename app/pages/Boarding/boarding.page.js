@@ -4,8 +4,8 @@ import {
   Text,
   View,
 } from 'react-native';
-import SplashScreen from 'react-native-splash-screen';
 import styles from './boarding.page.style';
+import SplashScreen from 'react-native-splash-screen';
 
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' +

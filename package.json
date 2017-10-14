@@ -11,12 +11,18 @@
 		"prepush": "npm run lint && npm run test"
 	},
 	"dependencies": {
+		"lodash": "^4.17.4",
 		"prop-types": "^15.6.0",
 		"react": "16.0.0-beta.5",
 		"react-native": "0.49.1",
+		"react-native-keyboard-aware-scroll-view": "^0.3.0",
+		"react-native-modal": "^4.0.0",
 		"react-native-splash-screen": "^3.0.1",
+		"react-navigation": "^1.0.0-beta.13",
 		"react-redux": "^5.0.6",
 		"redux": "^3.7.2",
+		"redux-actions": "^2.2.1",
+		"redux-form": "^7.1.1",
 		"redux-promise": "^0.5.3",
 		"redux-thunk": "^2.2.0"
 	},
