@@ -39,7 +39,7 @@ exports[`renders correctly 1`] = `
       }
     }
   >
-    To get started, edit App.js
+    To get started, edit Index.js
   </Text>
   <Text
     accessible={true}
