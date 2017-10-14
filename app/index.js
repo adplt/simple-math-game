@@ -1,8 +1,8 @@
-import React, {} from 'react';
+import React from 'react';
 import {
   AppRegistry
 } from 'react-native';
-import App from './pages/Boarding/boarding.page';
+import App from './pages/index';
 import {initStore} from './state/store';
 import {Provider} from 'react-redux';
 
