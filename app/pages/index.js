@@ -30,7 +30,7 @@ const mapDispatchToProps = (dispatch) => ({
   setNetworkStatus: (isConnected) => dispatch(setNetworkStatus(isConnected))
 });
 
-class IndexPage extends React.Component {
+class App extends React.Component {
 
   static propTypes = {
     // currentLanguage: PropTypes.object,
@@ -68,4 +68,4 @@ class IndexPage extends React.Component {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(IndexPage);
+export default connect(mapStateToProps, mapDispatchToProps)(App);

@@ -11,8 +11,12 @@ export default {
     margin: 10,
   },
   instructions: {
-    textAlign: 'center',
+    textAlign: 'left',
+    alignItems: 'flex-start',
     color: '#333333',
     marginBottom: 5,
   },
+  row: {
+    flexDirection: 'row'
+  }
 };

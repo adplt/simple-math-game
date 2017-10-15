@@ -73,7 +73,7 @@ exports[`renders correctly 1`] = `
             style={
               Object {
                 "alignItems": "center",
-                "backgroundColor": "#F5FCFF",
+                "backgroundColor": "#EEEEEE",
                 "flex": 1,
                 "justifyContent": "center",
               }
@@ -86,45 +86,55 @@ exports[`renders correctly 1`] = `
               ellipsizeMode="tail"
               style={
                 Object {
-                  "fontSize": 20,
+                  "fontSize": 50,
                   "margin": 10,
                   "textAlign": "center",
                 }
               }
             >
-              Welcome to React Native!
+              Mathematic
             </Text>
-            <Text
+            <View
+              accessibilityComponentType={undefined}
+              accessibilityLabel={undefined}
+              accessibilityTraits={undefined}
               accessible={true}
-              allowFontScaling={true}
-              disabled={false}
-              ellipsizeMode="tail"
+              collapsable={undefined}
+              hitSlop={undefined}
+              isTVSelectable={true}
+              nativeID={undefined}
+              onLayout={undefined}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
               style={
                 Object {
-                  "color": "#333333",
-                  "marginBottom": 5,
-                  "textAlign": "center",
+                  "opacity": 1,
+                  "padding": 20,
                 }
               }
+              testID={undefined}
+              tvParallaxProperties={undefined}
             >
-              To get started, edit Index.js
-            </Text>
-            <Text
-              accessible={true}
-              allowFontScaling={true}
-              disabled={false}
-              ellipsizeMode="tail"
-              style={
-                Object {
-                  "color": "#333333",
-                  "marginBottom": 5,
-                  "textAlign": "center",
+              <Text
+                accessible={true}
+                allowFontScaling={true}
+                disabled={false}
+                ellipsizeMode="tail"
+                style={
+                  Object {
+                    "color": "#333333",
+                    "marginBottom": 5,
+                    "textAlign": "center",
+                  }
                 }
-              }
-            >
-              Press Cmd+R to reload,
-Cmd+D or shake for dev menu
-            </Text>
+              >
+                Start
+              </Text>
+            </View>
           </View>
         </View>
       </View>

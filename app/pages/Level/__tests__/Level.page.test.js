@@ -1,10 +1,10 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import Boarding from '../boarding.page';
+import Level from '../Level.page';
 
-describe('Boarding component', () => {
+describe('Level component', () => {
   it('renders correctly', () => {
-    const tree = renderer.create(<Boarding />).toJSON();
+    const tree = renderer.create(<Level />).toJSON();
     expect(tree).toMatchSnapshot();
   });
 });

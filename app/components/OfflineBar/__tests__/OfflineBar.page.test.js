@@ -1,10 +1,10 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import Boarding from '../boarding.page';
+import OfflineBar from '../OfflineBar.component';
 
-describe('Boarding component', () => {
+describe('OfflineBar component', () => {
   it('renders correctly', () => {
-    const tree = renderer.create(<Boarding />).toJSON();
+    const tree = renderer.create(<OfflineBar />).toJSON();
     expect(tree).toMatchSnapshot();
   });
 });
