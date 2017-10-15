@@ -8,3 +8,11 @@ export function getCurrentRouteName (navigationState) {
   }
   return route.routeName;
 }
+
+export const filterObjectProperties = (sourceObject = {}, keys = []) => {
+  const filtered = {};
+  keys.forEach((eachKey) => {
+    filtered[eachKey] = sourceObject[eachKey];
+  });
+  return filtered;
+};

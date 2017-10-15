@@ -1,7 +1,9 @@
 import {createAction} from 'redux-actions';
 
 export const SET_NETWORK_STATUS = 'SET_NETWORK_STATUS';
-export const SET_NETWORK_BAR = 'SET_NETWORK_BAR';
+export const RESET_NETWORK_BAR = 'RESET_NETWORK_BAR';
+export const HIGHLIGHT_NETWORK_BAR = 'HIGHLIGHT_NETWORK_BAR';
 
+export const highlightNetworkBar = createAction(HIGHLIGHT_NETWORK_BAR);
 export const setNetworkStatus = createAction(SET_NETWORK_STATUS);
-export const resetNetworkBar = createAction(SET_NETWORK_BAR);
+export const resetNetworkBar = createAction(RESET_NETWORK_BAR);

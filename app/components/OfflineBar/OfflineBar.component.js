@@ -70,8 +70,8 @@ export default class OfflineBar extends Component {
     const isConnected = result(this.props, 'networkStatus.isConnected', true);
     return !isConnected ?
       <View style={[styles.container]}>
-        <StatusBar backgroundColor={'#CCC'} />
-        <Animated.Text style={[styles.offlineText, animationStyle]}>{'ERROR'}</Animated.Text>
+        <StatusBar backgroundColor={'#d83e0f'} />
+        <Animated.Text style={[styles.offlineText, animationStyle]}>{'Can not connect to network'}</Animated.Text>
       </View> : null;
   }
 }

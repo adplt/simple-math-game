@@ -11,12 +11,15 @@ import OfflineBar from '../components/OfflineBar/OfflineBar.component';
 // import {get, storageKeys} from '../utils/storage.util';
 import SplashScreen from 'react-native-splash-screen';
 
-const mapStateToProps = ({showSpinner, networkStatus, highlightText}) => ({
-  showSpinner,
-  networkStatus,
-  // currentLanguage,
-  highlightText
-});
+const mapStateToProps = (state) => {
+  const {showSpinner, networkStatus, highlightText} = state;
+  return {
+    showSpinner,
+    networkStatus,
+    // currentLanguage,
+    highlightText
+  };
+};
 
 const mapDispatchToProps = (dispatch) => ({
   // initializeLanguage: () => get(storageKeys['LANGUAGE']).
@@ -41,7 +44,6 @@ class IndexPage extends React.Component {
 
   componentWillMount () {
     // this.props.initializeLanguage();
-    // SplashScreen.hide();
   }
 
   componentDidMount () {
@@ -63,7 +65,6 @@ class IndexPage extends React.Component {
         <OverlaySpinner showSpinner={showSpinner} />
       </View>
     );
-    // return (<View />);
   }
 }
 
