@@ -4,7 +4,7 @@
 	"private": true,
 	"scripts": {
 		"start": "node node_modules/react-native/local-cli/cli.js start",
-		"test": "jest --verbose --coverage --forceExit",
+		"test": "jest --verbose --coverage --forceExit --no-verify",
 		"ios": "rndebugger-open && react-native run-ios",
 		"android": "cd android && ./gradlew clean && cd .. && rndebugger-open && react-native run-android",
 		"lint": "echo 'Running lint...' && eslint app/",
