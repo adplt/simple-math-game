@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import {View, StatusBar} from 'react-native';
 // import {theme} from '../styles/core.styles';
-import OverlaySpinner from '../components/OverlaySpinner/OverlaySpinner.component';
+import OverlayModal from '../components/OverlayModal/OverlayModal.component';
 import {setNetworkStatus, resetNetworkBar} from '../state/actions/index';
 import {ConnectedRoutes} from '../routes/router';
 import OfflineBar from '../components/OfflineBar/OfflineBar.component';
@@ -62,7 +62,7 @@ class App extends React.Component {
         />
         <StatusBar barStyle={'dark-content'} backgroundColor={'#CCC'} />
         <ConnectedRoutes />
-        <OverlaySpinner showSpinner={showSpinner} />
+        <OverlayModal showSpinner={showSpinner} />
       </View>
     );
   }

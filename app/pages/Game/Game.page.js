@@ -18,7 +18,8 @@ export default class Game extends Component {
   }
 
   state = {
-    validAnswer: false
+    validAnswer: false,
+    interval: 20
   }
 
   decidedChoose = 0;
@@ -31,7 +32,15 @@ export default class Game extends Component {
 
   componentWillMount () {
     this.decidedChoose = this.decided();
+    this.validateRandomQuestion();
     this.generateRandom();
+  }
+
+  componentDidMount () {
+    setInterval(() => {
+      const {interval} = this.state;
+      if (interval > 0) this.setState({interval: interval - 1});
+    }, 1000);
   }
 
   answerRawOneOption = () => {
@@ -125,6 +134,7 @@ export default class Game extends Component {
         this.setState({validAnswer: true});
         score += 1;
         updateScore(score += 1);
+        this.validateRandomQuestion();
       }
     } else {
       if (value === (this.rightResult === this.randomAnswer)) {
@@ -134,6 +144,7 @@ export default class Game extends Component {
         this.setState({validAnswer: true});
         score += 1;
         updateScore(score += 1);
+        this.validateRandomQuestion();
       }
     }
   }
@@ -184,13 +195,13 @@ export default class Game extends Component {
   }
 
   render () {
-    this.validateRandomQuestion();
     const {navigation, score} = this.props;
     const {menu, operator} = navigation.state.params;
+    const {interval} = this.state;
     return (
       menu === 'count' ?
         <View style={styles.container}>
-          <Text style={styles.instructions}>{`${'Score: '}${score}`}</Text>
+          <Text style={styles.instructions}>{`${'Score: '}${score} ${'Interval: '} ${interval}`}</Text>
           <Text style={styles.welcome}>
             {`${this.rand1} ${operator === '/' ? ':' : operator} ${this.rand2} ${' = ?'}`}
           </Text>
@@ -206,7 +217,7 @@ export default class Game extends Component {
           </View>
         </View> :
         <View style={styles.container}>
-          <Text style={styles.instructions}>{`${'Score:'} ${score}`}</Text>
+          <Text style={styles.instructions}>{`${'Score:'} ${score} ${'Interval: '} ${interval}`}</Text>
           <Text style={styles.welcome}>
             {`${this.rand1} ${operator === '/' ? ':' : operator} ${this.rand2} ${'='} ${this.randomAnswer} ${'?'}`}
           </Text>
