@@ -24,7 +24,7 @@ exports[`Level component renders correctly 1`] = `
       }
     }
   >
-    Choose option
+    Choose Option
   </Text>
   <View
     accessibilityComponentType={undefined}
@@ -192,6 +192,48 @@ exports[`Level component renders correctly 1`] = `
       }
     >
       Divide
+    </Text>
+  </View>
+  <View
+    accessibilityComponentType={undefined}
+    accessibilityLabel={undefined}
+    accessibilityTraits={undefined}
+    accessible={true}
+    collapsable={undefined}
+    hitSlop={undefined}
+    isTVSelectable={true}
+    nativeID={undefined}
+    onLayout={undefined}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "opacity": 1,
+        "padding": 10,
+      }
+    }
+    testID={undefined}
+    tvParallaxProperties={undefined}
+  >
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      disabled={false}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "alignItems": "flex-start",
+          "color": "#333333",
+          "marginBottom": 5,
+          "textAlign": "left",
+        }
+      }
+    >
+      Back
     </Text>
   </View>
 </View>

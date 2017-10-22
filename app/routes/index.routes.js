@@ -1,8 +1,8 @@
 import React from 'react';
 import {StackNavigator} from 'react-navigation';
 import Boarding from '../pages/Boarding/boarding.page';
-import Level from '../pages/Level/Level.page';
-import Game from '../pages/Game/Game.page';
+import Level from '../containers/Level.container';
+import Game from '../containers/Game.container';
 
 export default StackNavigator({
   Boarding: {

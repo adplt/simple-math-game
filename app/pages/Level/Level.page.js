@@ -11,11 +11,12 @@ export default class Level extends Component {
 
   static propTypes = {
     navigation: PropTypes.object,
+    goBack: PropTypes.func
   }
 
   onPress = (params) => {
     const {navigation} = this.props;
-    navigation.navigate('Game', {...navigation.state.params, ...params, score: 0});
+    navigation.navigate('Game', {...navigation.state.params, ...params});
   }
 
   plus = () => this.onPress({operator: '+'});
@@ -27,10 +28,11 @@ export default class Level extends Component {
   divide = () => this.onPress({operator: '/'});
 
   render () {
+    const {goBack} = this.props;
     return (
       <View style={styles.container}>
         <Text style={styles.welcome}>
-          {'Choose option'}
+          {'Choose Option'}
         </Text>
         <Touchable onPress={this.plus} style={{padding: 10}}>
           <Text style={styles.instructions}>{'Plus'}</Text>
@@ -43,6 +45,9 @@ export default class Level extends Component {
         </Touchable>
         <Touchable onPress={this.divide} style={{padding: 10}}>
           <Text style={styles.instructions}>{'Divide'}</Text>
+        </Touchable>
+        <Touchable onPress={goBack} style={{padding: 10}}>
+          <Text style={styles.instructions}>{'Back'}</Text>
         </Touchable>
       </View>
     );

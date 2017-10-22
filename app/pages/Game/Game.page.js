@@ -7,11 +7,14 @@ import styles from './Game.page.style';
 import Touchable from '../../components/Touchable/Touchable.component';
 import PropTypes from 'prop-types';
 import chunk from 'lodash/chunk';
+import noop from 'lodash/noop';
 
 export default class Game extends Component {
 
   static propTypes = {
     navigation: PropTypes.object,
+    updateScore: PropTypes.func,
+    score: PropTypes.number
   }
 
   state = {
@@ -104,11 +107,14 @@ export default class Game extends Component {
     );
 
   validateAnswer = (value) => () => {
+    let {updateScore = noop, score} = this.props;
     if (this.rightResult === value) {
       this.answerOption = [];
       this.decidedChoose = this.decided();
       this.generateRandom();
       this.setState({validAnswer: true});
+      score += 1;
+      updateScore(score += 1);
     }
   }
 
@@ -154,12 +160,12 @@ export default class Game extends Component {
 
   render () {
     this.validateRandomQuestion();
-    const {navigation} = this.props;
-    const {menu, operator, score} = navigation.state.params;
+    const {navigation, score} = this.props;
+    const {menu, operator} = navigation.state.params;
     return (
       menu === 'count' ?
         <View style={styles.container}>
-          <Text style={styles.instructions}>{`${score} ${this.decidedChoose}`}</Text>
+          <Text style={styles.instructions}>{`${'Score: '}${score}`}</Text>
           <Text style={styles.welcome}>
             {`${this.rand1} ${operator === '/' ? ':' : operator} ${this.rand2} ${' = ?'}`}
           </Text>
