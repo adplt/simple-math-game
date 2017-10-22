@@ -9,13 +9,6 @@ import SplashScreen from 'react-native-splash-screen';
 import Touchable from '../../components/Touchable/Touchable.component';
 import PropTypes from 'prop-types';
 
-// const instructions = Platform.select({
-//   ios: 'Press Cmd+R to reload,\n' +
-//     'Cmd+D or shake for dev menu',
-//   android: 'Double tap R on your keyboard to reload,\n' +
-//     'Shake or press menu button for dev menu',
-// });
-
 export default class Boarding extends Component {
 
   static propTypes = {
@@ -26,10 +19,14 @@ export default class Boarding extends Component {
     SplashScreen.hide();
   }
 
-  onPress = () => {
+  onPress = (params) => {
     const {navigation} = this.props;
-    navigation.navigate('Level');
+    navigation.navigate('Level', params);
   }
+
+  goToCounting = () => this.onPress({menu: 'count'});
+
+  goToChoosing = () => this.onPress({menu: 'choose'});
 
   render () {
     return (
@@ -37,9 +34,14 @@ export default class Boarding extends Component {
         <Text style={styles.welcome}>
           {'Mathematic'}
         </Text>
-        <Touchable onPress={this.onPress} style={{padding: 20}}>
+        <Touchable onPress={this.goToCounting} style={{padding: 10}}>
           <Text style={styles.instructions}>
-            {'Start'}
+            {'Counting'}
+          </Text>
+        </Touchable>
+        <Touchable onPress={this.goToChoosing} style={{padding: 10}}>
+          <Text style={styles.instructions}>
+            {'Choosing'}
           </Text>
         </Touchable>
       </View>

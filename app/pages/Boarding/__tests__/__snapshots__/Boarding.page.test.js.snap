@@ -45,7 +45,7 @@ exports[`Boarding component renders correctly 1`] = `
     style={
       Object {
         "opacity": 1,
-        "padding": 20,
+        "padding": 10,
       }
     }
     testID={undefined}
@@ -64,7 +64,48 @@ exports[`Boarding component renders correctly 1`] = `
         }
       }
     >
-      Start
+      Counting
+    </Text>
+  </View>
+  <View
+    accessibilityComponentType={undefined}
+    accessibilityLabel={undefined}
+    accessibilityTraits={undefined}
+    accessible={true}
+    collapsable={undefined}
+    hitSlop={undefined}
+    isTVSelectable={true}
+    nativeID={undefined}
+    onLayout={undefined}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "opacity": 1,
+        "padding": 10,
+      }
+    }
+    testID={undefined}
+    tvParallaxProperties={undefined}
+  >
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      disabled={false}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "color": "#333333",
+          "marginBottom": 5,
+          "textAlign": "center",
+        }
+      }
+    >
+      Choosing
     </Text>
   </View>
 </View>

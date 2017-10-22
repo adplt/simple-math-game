@@ -8,7 +8,9 @@ export default {
   welcome: {
     fontSize: 50,
     textAlign: 'center',
-    margin: 10,
+    marginTop: 15,
+    marginRight: 15,
+    marginBottom: 15,
   },
   instructions: {
     textAlign: 'left',
