@@ -15,4 +15,7 @@ export default {
     color: '#333333',
     marginBottom: 5,
   },
+  menuTouchable: {
+    padding: 10
+  }
 };

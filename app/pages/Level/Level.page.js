@@ -34,19 +34,19 @@ export default class Level extends Component {
         <Text style={styles.welcome}>
           {'Choose Option'}
         </Text>
-        <Touchable onPress={this.plus} style={{padding: 10}}>
+        <Touchable onPress={this.plus} style={styles.menuTouchable}>
           <Text style={styles.instructions}>{'Plus'}</Text>
         </Touchable>
-        <Touchable onPress={this.minus} style={{padding: 10}}>
+        <Touchable onPress={this.minus} style={styles.menuTouchable}>
           <Text style={styles.instructions}>{'Minus'}</Text>
         </Touchable>
-        <Touchable onPress={this.multiple} style={{padding: 10}}>
+        <Touchable onPress={this.multiple} style={styles.menuTouchable}>
           <Text style={styles.instructions}>{'Multiple'}</Text>
         </Touchable>
-        <Touchable onPress={this.divide} style={{padding: 10}}>
+        <Touchable onPress={this.divide} style={styles.menuTouchable}>
           <Text style={styles.instructions}>{'Divide'}</Text>
         </Touchable>
-        <Touchable onPress={goBack} style={{padding: 10}}>
+        <Touchable onPress={goBack} style={styles.menuTouchable}>
           <Text style={styles.instructions}>{'Back'}</Text>
         </Touchable>
       </View>

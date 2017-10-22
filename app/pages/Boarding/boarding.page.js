@@ -34,12 +34,12 @@ export default class Boarding extends Component {
         <Text style={styles.welcome}>
           {'Mathematic'}
         </Text>
-        <Touchable onPress={this.goToCounting} style={{padding: 10}}>
+        <Touchable onPress={this.goToCounting} style={styles.menuTouchable}>
           <Text style={styles.instructions}>
             {'Counting'}
           </Text>
         </Touchable>
-        <Touchable onPress={this.goToChoosing} style={{padding: 10}}>
+        <Touchable onPress={this.goToChoosing} style={styles.menuTouchable}>
           <Text style={styles.instructions}>
             {'Choosing'}
           </Text>

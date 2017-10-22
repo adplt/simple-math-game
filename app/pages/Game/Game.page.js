@@ -27,6 +27,8 @@ export default class Game extends Component {
   rand1 = 0;
   rand2 = 0;
 
+  randomAnswer = 0;
+
   componentWillMount () {
     this.decidedChoose = this.decided();
     this.generateRandom();
@@ -71,13 +73,18 @@ export default class Game extends Component {
   decided = () => Math.floor(Math.random() * 2 + 1);
 
   generateRandom = () => {
-    let random = Math.floor(Math.random() * 20);
-    for (let i = 0; i < 10; i++) {
-      if (i === 0) this.answerOption.push(random);
-      else if (this.answerOption.length === 4) break;
-      else {
-        this.checkingDuplicateOption(random, i);
-        random = Math.floor(Math.random() * 20);
+    const {navigation} = this.props;
+    const {menu} = navigation.state.params;
+
+    if (menu === 'count') {
+      let random = Math.floor(Math.random() * 20);
+      for (let i = 0; i < 10; i++) {
+        if (i === 0) this.answerOption.push(random);
+        else if (this.answerOption.length === 4) break;
+        else {
+          this.checkingDuplicateOption(random, i);
+          random = Math.floor(Math.random() * 20);
+        }
       }
     }
   }
@@ -99,7 +106,7 @@ export default class Game extends Component {
 
   renderOption = (answer) =>
     answer.map((value, i) =>
-      <Touchable style={{flex: 1}} key={i} onPress={this.validateAnswer(value)}>
+      <Touchable style={styles.halfWidth} key={i} onPress={this.validateAnswer(value)}>
         <Text style={styles.welcome}>
           {`${value}`}
         </Text>
@@ -107,18 +114,34 @@ export default class Game extends Component {
     );
 
   validateAnswer = (value) => () => {
+    const {navigation} = this.props;
+    const {menu} = navigation.state.params;
     let {updateScore = noop, score} = this.props;
-    if (this.rightResult === value) {
-      this.answerOption = [];
-      this.decidedChoose = this.decided();
-      this.generateRandom();
-      this.setState({validAnswer: true});
-      score += 1;
-      updateScore(score += 1);
+    if (menu === 'count') {
+      if (this.rightResult === value) {
+        this.answerOption = [];
+        this.decidedChoose = this.decided();
+        this.generateRandom();
+        this.setState({validAnswer: true});
+        score += 1;
+        updateScore(score += 1);
+      }
+    } else {
+      if (value === (this.rightResult === this.randomAnswer)) {
+        this.randomAnswer = 0;
+        this.decidedChoose = this.decided();
+        this.generateRandom();
+        this.setState({validAnswer: true});
+        score += 1;
+        updateScore(score += 1);
+      }
     }
   }
 
   rightAnswer = (operator) => {
+    const {navigation} = this.props;
+    const {menu} = navigation.state.params;
+
     switch (operator) {
     case '+': {
       this.rightResult = Number(this.rand1 + this.rand2);
@@ -140,6 +163,8 @@ export default class Game extends Component {
       break;
     }
     }
+
+    if (menu === 'choose') this.randomAnswer = this.decidedChoose === 2 ? this.rightResult : Math.floor(Math.random() * 20);
   }
 
   validateRandomQuestion = () => {
@@ -179,7 +204,25 @@ export default class Game extends Component {
               this.answerRawTwoOption()
             }
           </View>
-        </View> : <View />
+        </View> :
+        <View style={styles.container}>
+          <Text style={styles.instructions}>{`${'Score:'} ${score}`}</Text>
+          <Text style={styles.welcome}>
+            {`${this.rand1} ${operator === '/' ? ':' : operator} ${this.rand2} ${'='} ${this.randomAnswer} ${'?'}`}
+          </Text>
+          <View style={styles.row}>
+            <Touchable style={styles.halfWidth} onPress={this.validateAnswer(true)}>
+              <Text style={styles.welcome}>
+                {'True'}
+              </Text>
+            </Touchable>
+            <Touchable style={styles.halfWidth} onPress={this.validateAnswer(false)}>
+              <Text style={styles.welcome}>
+                {'False'}
+              </Text>
+            </Touchable>
+          </View>
+        </View>
     );
   }
 }

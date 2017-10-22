@@ -20,5 +20,8 @@ export default {
   },
   row: {
     flexDirection: 'row'
+  },
+  halfWidth: {
+    flex: 1
   }
 };

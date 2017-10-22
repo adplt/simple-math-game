@@ -18,5 +18,8 @@ export default {
   },
   row: {
     flexDirection: 'row'
+  },
+  menuTouchable: {
+    padding: 10
   }
 };
