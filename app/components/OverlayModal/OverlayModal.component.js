@@ -22,7 +22,6 @@ class OverlayModal extends React.Component {
 
   hideModal = () => {
     const {closeModal} = this.props;
-    // this.setState({visible: false});
     closeModal();
   }
 
@@ -33,8 +32,11 @@ class OverlayModal extends React.Component {
       <Modal
         isVisible={visible}>
         <View style={styles.container}>
+          <View>
+            <Text style={styles.welcome}>{'Time\'s Up'}</Text>
+          </View>
           <Touchable onPress={closeModal}>
-            <Text>Hello!</Text>
+            <Text style={styles.note}>{'Hello!'}</Text>
           </Touchable>
         </View>
       </Modal>

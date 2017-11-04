@@ -8,7 +8,7 @@ export default {
     opacity: 0.8
   },
   welcome: {
-    fontSize: 45,
+    fontSize: 40,
     textAlign: 'center',
     margin: 10,
     color: 'black'

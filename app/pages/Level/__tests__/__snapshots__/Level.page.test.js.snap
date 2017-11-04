@@ -47,7 +47,7 @@ exports[`Level component renders correctly 1`] = `
       style={
         Object {
           "color": "black",
-          "fontSize": 45,
+          "fontSize": 40,
           "margin": 10,
           "textAlign": "center",
         }

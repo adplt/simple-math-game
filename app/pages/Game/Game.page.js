@@ -57,7 +57,10 @@ export default class Game extends Component {
     setInterval(() => {
       const {firstTime} = this.state;
       if (this.interval > 0 && firstTime) this.interval = this.interval - 1; // this.setState({interval: interval - 1});
-      if (this.interval === 0) clearInterval(this.interval);
+      if (this.interval === 0) {
+        clearInterval(this.interval);
+        this.showModal = true;
+      }
     }, 1000);
   }
 
@@ -225,17 +228,15 @@ export default class Game extends Component {
     this.rightAnswer(operator);
   }
 
-  showAnswer = (menu) => menu === 'count' ? setTimeout(() => this.setState({showAnswer: true}), 1000) : null;
-
   closeModal = () => {
+    const {resetToBoard} = this.props;
     this.showModal = false;
+    resetToBoard();
   }
 
   render () {
     const {navigation, score} = this.props;
     const {menu, operator} = navigation.state.params;
-    const {showAnswer} = this.state;
-    this.showAnswer(menu);
     return (
       <ImageBackground
         source={require('../../image/background.jpg')}
@@ -249,12 +250,12 @@ export default class Game extends Component {
               </Text>
               <View style={styles.row}>
                 {
-                  showAnswer ? this.answerRawOneOption() : null
+                  this.answerRawOneOption()
                 }
               </View>
               <View style={styles.row}>
                 {
-                  showAnswer ? this.answerRawTwoOption() : null
+                  this.answerRawTwoOption()
                 }
               </View>
             </View> :

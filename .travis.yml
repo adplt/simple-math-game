@@ -29,6 +29,7 @@ before_install:
 - chmod +x ./scripts/build.sh
 - chmod +x ./scripts/package.sh
 - chmod +x ./scripts/uploader.sh
+- chmod +x ./scripts/android/add-keystore.sh
 install:
 - yarn
 cache:

@@ -65,6 +65,25 @@ exports[`OverlayModal component renders correctly 1`] = `
         }
       }
     >
+      <View>
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          disabled={false}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "color": "black",
+              "fontSize": 40,
+              "margin": 10,
+              "paddingTop": 20,
+              "textAlign": "center",
+            }
+          }
+        >
+          Time's Up
+        </Text>
+      </View>
       <View
         accessibilityComponentType={undefined}
         accessibilityLabel={undefined}
@@ -94,6 +113,11 @@ exports[`OverlayModal component renders correctly 1`] = `
           allowFontScaling={true}
           disabled={false}
           ellipsizeMode="tail"
+          style={
+            Object {
+              "margin": 20,
+            }
+          }
         >
           Hello!
         </Text>

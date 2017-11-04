@@ -8,5 +8,15 @@ export default {
     fontSize: 50,
     textAlign: 'center',
     color: 'black'
+  },
+  welcome: {
+    fontSize: 40,
+    textAlign: 'center',
+    margin: 10,
+    color: 'black',
+    paddingTop: 20
+  },
+  note: {
+    margin: 20
   }
 };
