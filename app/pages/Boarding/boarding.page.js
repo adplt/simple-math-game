@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {
-  // Platform,
+  ImageBackground,
   Text,
   View,
 } from 'react-native';
@@ -28,23 +28,37 @@ export default class Boarding extends Component {
 
   goToChoosing = () => this.onPress({menu: 'choose'});
 
+  onPressLeaderBoard = (params) => {
+    const {navigation} = this.props;
+    navigation.navigate('Example', params);
+  }
+
   render () {
     return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>
-          {'Mathematic'}
-        </Text>
-        <Touchable onPress={this.goToCounting} style={styles.menuTouchable}>
-          <Text style={styles.instructions}>
-            {'Counting'}
+      <ImageBackground
+        source={require('../../image/background.jpg')}
+        style={{flex: 1}}>
+        <View style={styles.container}>
+          <Text style={styles.welcome}>
+            {'Mathematic'}
           </Text>
-        </Touchable>
-        <Touchable onPress={this.goToChoosing} style={styles.menuTouchable}>
-          <Text style={styles.instructions}>
-            {'Choosing'}
-          </Text>
-        </Touchable>
-      </View>
+          <Touchable onPress={this.goToCounting} style={styles.menuTouchable}>
+            <Text style={styles.instructions}>
+              {'Counting'}
+            </Text>
+          </Touchable>
+          <Touchable onPress={this.goToChoosing} style={styles.menuTouchable}>
+            <Text style={styles.instructions}>
+              {'Choosing'}
+            </Text>
+          </Touchable>
+          <Touchable onPress={this.onPressLeaderBoard} style={styles.menuTouchable}>
+            <Text style={styles.instructions}>
+              {'Leader Board'}
+            </Text>
+          </Touchable>
+        </View>
+      </ImageBackground>
     );
   }
 }

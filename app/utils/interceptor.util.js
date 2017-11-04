@@ -8,16 +8,12 @@ import {highlightNetworkBar} from '../state/actions/index';
 
 // Interceptor that sets the defaultPayload
 export const addDefaultPayloadInterceptor = (store) => (config) => {
-  if (config.method === 'get') {
-    return config;
-  }
+  if (config.method === 'get') return config;
   const reduxState = store.getState();
-  const completeExtraPayload = {
-    ...(result(reduxState, 'additionalApiPayload', {})),
-    // lang: result(reduxState, 'currentLanguage.id', 'id'),
-    // TXID: uuidV4(),
-    // profileId: result(reduxState, 'user._id'),
-  };
+  const completeExtraPayload = {...(result(reduxState, 'additionalApiPayload', {}))};
+  // lang: result(reduxState, 'currentLanguage.id', 'id'),
+  // TXID: uuidV4(),
+  // profileId: result(reduxState, 'user._id'),
   config.data = Object.assign({}, filterObjectProperties(completeExtraPayload, result(config, 'additional', [])), config.data);
   return config;
 };
@@ -25,12 +21,8 @@ export const addDefaultPayloadInterceptor = (store) => (config) => {
 // Interceptor that checks the status of the response
 export const getStatusValidatorInterceptor = () => (response) => {
   const {status} = response;
-  if (status >= 200 && status < 300) {
-    return response;
-  }
-  if (status === 401) {
-    // SOME ACTION
-  }
+  if (status >= 200 && status < 300) return response;
+  if (status === 401);
   // const userId = result(store.getState(), 'user.profile.customer.id', 0);
   // const trackerLabel = getInterceptorTrackerLabel(response, userId);
   // const endpoint = result(response, 'config.endpoint', 'NOT FOUND');
@@ -81,15 +73,12 @@ export const getNoNetWorkInterceptor =  (store) => (config) => {
 // };
 
 export const removeFalsyValues = (config = {}) => {
-  if (config.method === 'get') {
-    return config;
-  }
+  if (config.method === 'get') return config;
   const transformedPayload = {};
   const payload = result(config, 'data', {});
   Object.keys(payload).map((key) => {
-    if ((payload[key] && payload[key] !== 'undefined') || payload[key] === false) { // Do not remove key if its false or it has some value
-      transformedPayload[key] = payload[key];
-    }
+    // Do not remove key if its false or it has some value
+    if ((payload[key] && payload[key] !== 'undefined') || payload[key] === false) transformedPayload[key] = payload[key];
   });
   config.data = transformedPayload;
   return config;

@@ -2,24 +2,34 @@ import React, {Component} from 'react';
 import {
   Text,
   View,
+  ImageBackground,
+  Animated
 } from 'react-native';
 import styles from './Game.page.style';
 import Touchable from '../../components/Touchable/Touchable.component';
 import PropTypes from 'prop-types';
 import chunk from 'lodash/chunk';
 import noop from 'lodash/noop';
+import OverlayModal from '../../components/OverlayModal/OverlayModal.component';
+import RenderAnswer from '../../components/RenderAnswer/RenderAnswer.component';
 
 export default class Game extends Component {
 
   static propTypes = {
     navigation: PropTypes.object,
     updateScore: PropTypes.func,
-    score: PropTypes.number
+    score: PropTypes.number,
+    resetToBoard: PropTypes.func
   }
 
   state = {
     validAnswer: false,
-    interval: 20
+    interval: 5,
+    firstTime: false,
+    showAnswer: false,
+    scrollX: new Animated.Value(0),
+    scrollY: new Animated.Value(0),
+    showModal: false
   }
 
   decidedChoose = 0;
@@ -27,8 +37,15 @@ export default class Game extends Component {
   rightResult = 0
   rand1 = 0;
   rand2 = 0;
-
   randomAnswer = 0;
+  interval = 5;
+  showModal = false;
+
+  _onInterpolate = (inputRange, outputRange) => this.state.scrollY.interpolate({
+    inputRange,
+    outputRange,
+    extrapolate: 'clamp',
+  });
 
   componentWillMount () {
     this.decidedChoose = this.decided();
@@ -38,9 +55,15 @@ export default class Game extends Component {
 
   componentDidMount () {
     setInterval(() => {
-      const {interval} = this.state;
-      if (interval > 0) this.setState({interval: interval - 1});
+      const {firstTime} = this.state;
+      if (this.interval > 0 && firstTime) this.interval = this.interval - 1; // this.setState({interval: interval - 1});
+      if (this.interval === 0) clearInterval(this.interval);
     }, 1000);
+  }
+
+  componentWillUnmount () {
+    clearInterval(this.interval);
+    if (this.interval === 0) this.showModal = true;
   }
 
   answerRawOneOption = () => {
@@ -51,14 +74,21 @@ export default class Game extends Component {
       const index = Number(this.decided() - 1);
       let flag = false;
       for (let i = 0; i < 4; i++) if (this.answerOption[i] === this.rightResult) flag = true;
-
       if (!flag) {
         this.answerOption[index] = this.rightResult;
         answerRawOne[index] = this.rightResult;
       }
     }
 
-    return this.renderOption(answerRawOne);
+    const opacity = this._onInterpolate([0, 0, 0], [0, 1, 1]);
+    return answerRawOne.map((val, i) =>
+      <RenderAnswer
+        key={i}
+        onPress={this.validateAnswer}
+        disabled={this.interval === 0}
+        value={val}
+        opacity={opacity}
+      />);
   }
 
   answerRawTwoOption = () => {
@@ -76,7 +106,15 @@ export default class Game extends Component {
       }
     }
 
-    return this.renderOption(answerRawTwo);
+    const opacity = this._onInterpolate([0, 0, 0], [0, 1, 1]);
+    return answerRawTwo.map((val, i) =>
+      <RenderAnswer
+        key={i}
+        onPress={this.validateAnswer}
+        disabled={this.interval === 0}
+        value={val}
+        opacity={opacity}
+      />);
   }
 
   decided = () => Math.floor(Math.random() * 2 + 1);
@@ -113,19 +151,11 @@ export default class Game extends Component {
     }
   }
 
-  renderOption = (answer) =>
-    answer.map((value, i) =>
-      <Touchable style={styles.halfWidth} key={i} onPress={this.validateAnswer(value)}>
-        <Text style={styles.welcome}>
-          {`${value}`}
-        </Text>
-      </Touchable>
-    );
-
   validateAnswer = (value) => () => {
     const {navigation} = this.props;
     const {menu} = navigation.state.params;
     let {updateScore = noop, score} = this.props;
+    const {firstTime} = this.state;
     if (menu === 'count') {
       if (this.rightResult === value) {
         this.answerOption = [];
@@ -147,6 +177,7 @@ export default class Game extends Component {
         this.validateRandomQuestion();
       }
     }
+    if (firstTime === false) this.setState({firstTime: true});
   }
 
   rightAnswer = (operator) => {
@@ -194,46 +225,60 @@ export default class Game extends Component {
     this.rightAnswer(operator);
   }
 
+  showAnswer = (menu) => menu === 'count' ? setTimeout(() => this.setState({showAnswer: true}), 1000) : null;
+
+  closeModal = () => {
+    this.showModal = false;
+  }
+
   render () {
     const {navigation, score} = this.props;
     const {menu, operator} = navigation.state.params;
-    const {interval} = this.state;
+    const {showAnswer} = this.state;
+    this.showAnswer(menu);
     return (
-      menu === 'count' ?
-        <View style={styles.container}>
-          <Text style={styles.instructions}>{`${'Score: '}${score} ${'Interval: '} ${interval}`}</Text>
-          <Text style={styles.welcome}>
-            {`${this.rand1} ${operator === '/' ? ':' : operator} ${this.rand2} ${' = ?'}`}
-          </Text>
-          <View style={styles.row}>
-            {
-              this.answerRawOneOption()
-            }
-          </View>
-          <View style={styles.row}>
-            {
-              this.answerRawTwoOption()
-            }
-          </View>
-        </View> :
-        <View style={styles.container}>
-          <Text style={styles.instructions}>{`${'Score:'} ${score} ${'Interval: '} ${interval}`}</Text>
-          <Text style={styles.welcome}>
-            {`${this.rand1} ${operator === '/' ? ':' : operator} ${this.rand2} ${'='} ${this.randomAnswer} ${'?'}`}
-          </Text>
-          <View style={styles.row}>
-            <Touchable style={styles.halfWidth} onPress={this.validateAnswer(true)}>
+      <ImageBackground
+        source={require('../../image/background.jpg')}
+        style={{flex: 1}}>
+        {
+          menu === 'count' ?
+            <View style={styles.container}>
+              <Text style={styles.instructions}>{`${'Score: '}${score} ${'Interval: '} ${this.interval < 0 ? 0 : this.interval}`}</Text>
               <Text style={styles.welcome}>
-                {'True'}
+                {`${this.rand1} ${operator === '/' ? ':' : operator} ${this.rand2} ${' = ?'}`}
               </Text>
-            </Touchable>
-            <Touchable style={styles.halfWidth} onPress={this.validateAnswer(false)}>
+              <View style={styles.row}>
+                {
+                  showAnswer ? this.answerRawOneOption() : null
+                }
+              </View>
+              <View style={styles.row}>
+                {
+                  showAnswer ? this.answerRawTwoOption() : null
+                }
+              </View>
+            </View> :
+            <View style={styles.container}>
+              <Text style={styles.instructions}>{`${'Score:'} ${score} ${'Interval: '} ${this.interval}`}</Text>
               <Text style={styles.welcome}>
-                {'False'}
+                {`${this.rand1} ${operator === '/' ? ':' : operator} ${this.rand2} ${'='} ${this.randomAnswer} ${'?'}`}
               </Text>
-            </Touchable>
-          </View>
-        </View>
+              <View style={styles.row}>
+                <Touchable style={styles.halfWidth} onPress={this.validateAnswer(true)}>
+                  <Text style={styles.welcome}>
+                    {'True'}
+                  </Text>
+                </Touchable>
+                <Touchable style={styles.halfWidth} onPress={this.validateAnswer(false)}>
+                  <Text style={styles.welcome}>
+                    {'False'}
+                  </Text>
+                </Touchable>
+              </View>
+            </View>
+        }
+        <OverlayModal showModal={this.showModal} closeModal={this.closeModal} />
+      </ImageBackground>
     );
   }
 }

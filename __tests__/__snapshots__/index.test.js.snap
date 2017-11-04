@@ -72,52 +72,40 @@ exports[`renders correctly 1`] = `
           <View
             style={
               Object {
-                "alignItems": "center",
-                "backgroundColor": "#EEEEEE",
                 "flex": 1,
-                "justifyContent": "center",
               }
             }
           >
-            <Text
-              accessible={true}
-              allowFontScaling={true}
-              disabled={false}
-              ellipsizeMode="tail"
+            <Image
+              source={1}
               style={
-                Object {
-                  "fontSize": 50,
-                  "margin": 10,
-                  "textAlign": "center",
-                }
+                Array [
+                  Object {
+                    "bottom": 0,
+                    "left": 0,
+                    "position": "absolute",
+                    "right": 0,
+                    "top": 0,
+                  },
+                  Object {
+                    "height": undefined,
+                    "width": undefined,
+                  },
+                  undefined,
+                ]
               }
-            >
-              Mathematic
-            </Text>
+            />
             <View
-              accessibilityComponentType={undefined}
-              accessibilityLabel={undefined}
-              accessibilityTraits={undefined}
-              accessible={true}
-              collapsable={undefined}
-              hitSlop={undefined}
-              isTVSelectable={true}
-              nativeID={undefined}
-              onLayout={undefined}
-              onResponderGrant={[Function]}
-              onResponderMove={[Function]}
-              onResponderRelease={[Function]}
-              onResponderTerminate={[Function]}
-              onResponderTerminationRequest={[Function]}
-              onStartShouldSetResponder={[Function]}
               style={
                 Object {
-                  "opacity": 1,
-                  "padding": 10,
+                  "alignItems": "center",
+                  "backgroundColor": "#FFF",
+                  "flex": 1,
+                  "justifyContent": "center",
+                  "margin": 40,
+                  "opacity": 0.8,
                 }
               }
-              testID={undefined}
-              tvParallaxProperties={undefined}
             >
               <Text
                 accessible={true}
@@ -126,55 +114,141 @@ exports[`renders correctly 1`] = `
                 ellipsizeMode="tail"
                 style={
                   Object {
-                    "color": "#333333",
-                    "marginBottom": 5,
+                    "color": "black",
+                    "fontSize": 50,
+                    "margin": 10,
                     "textAlign": "center",
                   }
                 }
               >
-                Counting
+                Mathematic
               </Text>
-            </View>
-            <View
-              accessibilityComponentType={undefined}
-              accessibilityLabel={undefined}
-              accessibilityTraits={undefined}
-              accessible={true}
-              collapsable={undefined}
-              hitSlop={undefined}
-              isTVSelectable={true}
-              nativeID={undefined}
-              onLayout={undefined}
-              onResponderGrant={[Function]}
-              onResponderMove={[Function]}
-              onResponderRelease={[Function]}
-              onResponderTerminate={[Function]}
-              onResponderTerminationRequest={[Function]}
-              onStartShouldSetResponder={[Function]}
-              style={
-                Object {
-                  "opacity": 1,
-                  "padding": 10,
-                }
-              }
-              testID={undefined}
-              tvParallaxProperties={undefined}
-            >
-              <Text
+              <View
+                accessibilityComponentType={undefined}
+                accessibilityLabel={undefined}
+                accessibilityTraits={undefined}
                 accessible={true}
-                allowFontScaling={true}
-                disabled={false}
-                ellipsizeMode="tail"
+                collapsable={undefined}
+                hitSlop={undefined}
+                isTVSelectable={true}
+                nativeID={undefined}
+                onLayout={undefined}
+                onResponderGrant={[Function]}
+                onResponderMove={[Function]}
+                onResponderRelease={[Function]}
+                onResponderTerminate={[Function]}
+                onResponderTerminationRequest={[Function]}
+                onStartShouldSetResponder={[Function]}
                 style={
                   Object {
-                    "color": "#333333",
-                    "marginBottom": 5,
-                    "textAlign": "center",
+                    "opacity": 1,
+                    "padding": 10,
                   }
                 }
+                testID={undefined}
+                tvParallaxProperties={undefined}
               >
-                Choosing
-              </Text>
+                <Text
+                  accessible={true}
+                  allowFontScaling={true}
+                  disabled={false}
+                  ellipsizeMode="tail"
+                  style={
+                    Object {
+                      "alignItems": "flex-start",
+                      "color": "#333333",
+                      "marginBottom": 5,
+                      "textAlign": "left",
+                    }
+                  }
+                >
+                  Counting
+                </Text>
+              </View>
+              <View
+                accessibilityComponentType={undefined}
+                accessibilityLabel={undefined}
+                accessibilityTraits={undefined}
+                accessible={true}
+                collapsable={undefined}
+                hitSlop={undefined}
+                isTVSelectable={true}
+                nativeID={undefined}
+                onLayout={undefined}
+                onResponderGrant={[Function]}
+                onResponderMove={[Function]}
+                onResponderRelease={[Function]}
+                onResponderTerminate={[Function]}
+                onResponderTerminationRequest={[Function]}
+                onStartShouldSetResponder={[Function]}
+                style={
+                  Object {
+                    "opacity": 1,
+                    "padding": 10,
+                  }
+                }
+                testID={undefined}
+                tvParallaxProperties={undefined}
+              >
+                <Text
+                  accessible={true}
+                  allowFontScaling={true}
+                  disabled={false}
+                  ellipsizeMode="tail"
+                  style={
+                    Object {
+                      "alignItems": "flex-start",
+                      "color": "#333333",
+                      "marginBottom": 5,
+                      "textAlign": "left",
+                    }
+                  }
+                >
+                  Choosing
+                </Text>
+              </View>
+              <View
+                accessibilityComponentType={undefined}
+                accessibilityLabel={undefined}
+                accessibilityTraits={undefined}
+                accessible={true}
+                collapsable={undefined}
+                hitSlop={undefined}
+                isTVSelectable={true}
+                nativeID={undefined}
+                onLayout={undefined}
+                onResponderGrant={[Function]}
+                onResponderMove={[Function]}
+                onResponderRelease={[Function]}
+                onResponderTerminate={[Function]}
+                onResponderTerminationRequest={[Function]}
+                onStartShouldSetResponder={[Function]}
+                style={
+                  Object {
+                    "opacity": 1,
+                    "padding": 10,
+                  }
+                }
+                testID={undefined}
+                tvParallaxProperties={undefined}
+              >
+                <Text
+                  accessible={true}
+                  allowFontScaling={true}
+                  disabled={false}
+                  ellipsizeMode="tail"
+                  style={
+                    Object {
+                      "alignItems": "flex-start",
+                      "color": "#333333",
+                      "marginBottom": 5,
+                      "textAlign": "left",
+                    }
+                  }
+                >
+                  Leader Board
+                </Text>
+              </View>
             </View>
           </View>
         </View>

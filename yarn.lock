@@ -3871,9 +3871,9 @@ react-native-keyboard-aware-scroll-view@^0.3.0:
     prop-types "^15.5.10"
     react-timer-mixin "^0.13.3"
 
-react-native-modal@^4.0.0:
-  version "4.0.0"
-  resolved "https://registry.yarnpkg.com/react-native-modal/-/react-native-modal-4.0.0.tgz#1e11633d54ae073f42e74bb4f37ef81b5cb5a820"
+react-native-modal@^4.1.0:
+  version "4.1.0"
+  resolved "https://registry.yarnpkg.com/react-native-modal/-/react-native-modal-4.1.0.tgz#f9b7effdce1eaf74fe3135b549b2a341b431b2d7"
   dependencies:
     prop-types "15.5.10"
     react-native-animatable "^1.2.3"

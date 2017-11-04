@@ -19,9 +19,7 @@ class ScrollableOverlayModal extends React.Component {
         <TouchableWithoutFeedback onPress={onDismiss}>
           <View style={styles.container}>
             <ScrollView contentContainerStyle={styles.scrollViewContainer}>
-              <TouchableWithoutFeedback>
-                {children}
-              </TouchableWithoutFeedback>
+              {children}
             </ScrollView>
           </View>
         </TouchableWithoutFeedback> : null

@@ -4,52 +4,40 @@ exports[`Level component renders correctly 1`] = `
 <View
   style={
     Object {
-      "alignItems": "center",
-      "backgroundColor": "#EEEEEE",
       "flex": 1,
-      "justifyContent": "center",
     }
   }
 >
-  <Text
-    accessible={true}
-    allowFontScaling={true}
-    disabled={false}
-    ellipsizeMode="tail"
+  <Image
+    source={1}
     style={
-      Object {
-        "fontSize": 50,
-        "margin": 10,
-        "textAlign": "center",
-      }
+      Array [
+        Object {
+          "bottom": 0,
+          "left": 0,
+          "position": "absolute",
+          "right": 0,
+          "top": 0,
+        },
+        Object {
+          "height": undefined,
+          "width": undefined,
+        },
+        undefined,
+      ]
     }
-  >
-    Choose Option
-  </Text>
+  />
   <View
-    accessibilityComponentType={undefined}
-    accessibilityLabel={undefined}
-    accessibilityTraits={undefined}
-    accessible={true}
-    collapsable={undefined}
-    hitSlop={undefined}
-    isTVSelectable={true}
-    nativeID={undefined}
-    onLayout={undefined}
-    onResponderGrant={[Function]}
-    onResponderMove={[Function]}
-    onResponderRelease={[Function]}
-    onResponderTerminate={[Function]}
-    onResponderTerminationRequest={[Function]}
-    onStartShouldSetResponder={[Function]}
     style={
       Object {
-        "opacity": 1,
-        "padding": 10,
+        "alignItems": "center",
+        "backgroundColor": "#FFF",
+        "flex": 1,
+        "justifyContent": "center",
+        "margin": 40,
+        "opacity": 0.8,
       }
     }
-    testID={undefined}
-    tvParallaxProperties={undefined}
   >
     <Text
       accessible={true}
@@ -58,183 +46,225 @@ exports[`Level component renders correctly 1`] = `
       ellipsizeMode="tail"
       style={
         Object {
-          "alignItems": "flex-start",
-          "color": "#333333",
-          "marginBottom": 5,
-          "textAlign": "left",
+          "color": "black",
+          "fontSize": 45,
+          "margin": 10,
+          "textAlign": "center",
         }
       }
     >
-      Plus
+      Choose Option
     </Text>
-  </View>
-  <View
-    accessibilityComponentType={undefined}
-    accessibilityLabel={undefined}
-    accessibilityTraits={undefined}
-    accessible={true}
-    collapsable={undefined}
-    hitSlop={undefined}
-    isTVSelectable={true}
-    nativeID={undefined}
-    onLayout={undefined}
-    onResponderGrant={[Function]}
-    onResponderMove={[Function]}
-    onResponderRelease={[Function]}
-    onResponderTerminate={[Function]}
-    onResponderTerminationRequest={[Function]}
-    onStartShouldSetResponder={[Function]}
-    style={
-      Object {
-        "opacity": 1,
-        "padding": 10,
-      }
-    }
-    testID={undefined}
-    tvParallaxProperties={undefined}
-  >
-    <Text
+    <View
+      accessibilityComponentType={undefined}
+      accessibilityLabel={undefined}
+      accessibilityTraits={undefined}
       accessible={true}
-      allowFontScaling={true}
-      disabled={false}
-      ellipsizeMode="tail"
+      collapsable={undefined}
+      hitSlop={undefined}
+      isTVSelectable={true}
+      nativeID={undefined}
+      onLayout={undefined}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
       style={
         Object {
-          "alignItems": "flex-start",
-          "color": "#333333",
-          "marginBottom": 5,
-          "textAlign": "left",
+          "opacity": 1,
+          "padding": 10,
         }
       }
+      testID={undefined}
+      tvParallaxProperties={undefined}
     >
-      Minus
-    </Text>
-  </View>
-  <View
-    accessibilityComponentType={undefined}
-    accessibilityLabel={undefined}
-    accessibilityTraits={undefined}
-    accessible={true}
-    collapsable={undefined}
-    hitSlop={undefined}
-    isTVSelectable={true}
-    nativeID={undefined}
-    onLayout={undefined}
-    onResponderGrant={[Function]}
-    onResponderMove={[Function]}
-    onResponderRelease={[Function]}
-    onResponderTerminate={[Function]}
-    onResponderTerminationRequest={[Function]}
-    onStartShouldSetResponder={[Function]}
-    style={
-      Object {
-        "opacity": 1,
-        "padding": 10,
-      }
-    }
-    testID={undefined}
-    tvParallaxProperties={undefined}
-  >
-    <Text
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        disabled={false}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "alignItems": "flex-start",
+            "color": "#333333",
+            "marginBottom": 5,
+            "textAlign": "left",
+          }
+        }
+      >
+        Plus
+      </Text>
+    </View>
+    <View
+      accessibilityComponentType={undefined}
+      accessibilityLabel={undefined}
+      accessibilityTraits={undefined}
       accessible={true}
-      allowFontScaling={true}
-      disabled={false}
-      ellipsizeMode="tail"
+      collapsable={undefined}
+      hitSlop={undefined}
+      isTVSelectable={true}
+      nativeID={undefined}
+      onLayout={undefined}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
       style={
         Object {
-          "alignItems": "flex-start",
-          "color": "#333333",
-          "marginBottom": 5,
-          "textAlign": "left",
+          "opacity": 1,
+          "padding": 10,
         }
       }
+      testID={undefined}
+      tvParallaxProperties={undefined}
     >
-      Multiple
-    </Text>
-  </View>
-  <View
-    accessibilityComponentType={undefined}
-    accessibilityLabel={undefined}
-    accessibilityTraits={undefined}
-    accessible={true}
-    collapsable={undefined}
-    hitSlop={undefined}
-    isTVSelectable={true}
-    nativeID={undefined}
-    onLayout={undefined}
-    onResponderGrant={[Function]}
-    onResponderMove={[Function]}
-    onResponderRelease={[Function]}
-    onResponderTerminate={[Function]}
-    onResponderTerminationRequest={[Function]}
-    onStartShouldSetResponder={[Function]}
-    style={
-      Object {
-        "opacity": 1,
-        "padding": 10,
-      }
-    }
-    testID={undefined}
-    tvParallaxProperties={undefined}
-  >
-    <Text
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        disabled={false}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "alignItems": "flex-start",
+            "color": "#333333",
+            "marginBottom": 5,
+            "textAlign": "left",
+          }
+        }
+      >
+        Minus
+      </Text>
+    </View>
+    <View
+      accessibilityComponentType={undefined}
+      accessibilityLabel={undefined}
+      accessibilityTraits={undefined}
       accessible={true}
-      allowFontScaling={true}
-      disabled={false}
-      ellipsizeMode="tail"
+      collapsable={undefined}
+      hitSlop={undefined}
+      isTVSelectable={true}
+      nativeID={undefined}
+      onLayout={undefined}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
       style={
         Object {
-          "alignItems": "flex-start",
-          "color": "#333333",
-          "marginBottom": 5,
-          "textAlign": "left",
+          "opacity": 1,
+          "padding": 10,
         }
       }
+      testID={undefined}
+      tvParallaxProperties={undefined}
     >
-      Divide
-    </Text>
-  </View>
-  <View
-    accessibilityComponentType={undefined}
-    accessibilityLabel={undefined}
-    accessibilityTraits={undefined}
-    accessible={true}
-    collapsable={undefined}
-    hitSlop={undefined}
-    isTVSelectable={true}
-    nativeID={undefined}
-    onLayout={undefined}
-    onResponderGrant={[Function]}
-    onResponderMove={[Function]}
-    onResponderRelease={[Function]}
-    onResponderTerminate={[Function]}
-    onResponderTerminationRequest={[Function]}
-    onStartShouldSetResponder={[Function]}
-    style={
-      Object {
-        "opacity": 1,
-        "padding": 10,
-      }
-    }
-    testID={undefined}
-    tvParallaxProperties={undefined}
-  >
-    <Text
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        disabled={false}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "alignItems": "flex-start",
+            "color": "#333333",
+            "marginBottom": 5,
+            "textAlign": "left",
+          }
+        }
+      >
+        Multiple
+      </Text>
+    </View>
+    <View
+      accessibilityComponentType={undefined}
+      accessibilityLabel={undefined}
+      accessibilityTraits={undefined}
       accessible={true}
-      allowFontScaling={true}
-      disabled={false}
-      ellipsizeMode="tail"
+      collapsable={undefined}
+      hitSlop={undefined}
+      isTVSelectable={true}
+      nativeID={undefined}
+      onLayout={undefined}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
       style={
         Object {
-          "alignItems": "flex-start",
-          "color": "#333333",
-          "marginBottom": 5,
-          "textAlign": "left",
+          "opacity": 1,
+          "padding": 10,
         }
       }
+      testID={undefined}
+      tvParallaxProperties={undefined}
     >
-      Back
-    </Text>
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        disabled={false}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "alignItems": "flex-start",
+            "color": "#333333",
+            "marginBottom": 5,
+            "textAlign": "left",
+          }
+        }
+      >
+        Divide
+      </Text>
+    </View>
+    <View
+      accessibilityComponentType={undefined}
+      accessibilityLabel={undefined}
+      accessibilityTraits={undefined}
+      accessible={true}
+      collapsable={undefined}
+      hitSlop={undefined}
+      isTVSelectable={true}
+      nativeID={undefined}
+      onLayout={undefined}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "opacity": 1,
+          "padding": 10,
+        }
+      }
+      testID={undefined}
+      tvParallaxProperties={undefined}
+    >
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        disabled={false}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "alignItems": "flex-start",
+            "color": "#333333",
+            "marginBottom": 5,
+            "textAlign": "left",
+          }
+        }
+      >
+        Back
+      </Text>
+    </View>
   </View>
 </View>
 `;

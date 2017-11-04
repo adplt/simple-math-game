@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {
+  ImageBackground,
   Text,
   View,
 } from 'react-native';
@@ -30,26 +31,30 @@ export default class Level extends Component {
   render () {
     const {goBack} = this.props;
     return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>
-          {'Choose Option'}
-        </Text>
-        <Touchable onPress={this.plus} style={styles.menuTouchable}>
-          <Text style={styles.instructions}>{'Plus'}</Text>
-        </Touchable>
-        <Touchable onPress={this.minus} style={styles.menuTouchable}>
-          <Text style={styles.instructions}>{'Minus'}</Text>
-        </Touchable>
-        <Touchable onPress={this.multiple} style={styles.menuTouchable}>
-          <Text style={styles.instructions}>{'Multiple'}</Text>
-        </Touchable>
-        <Touchable onPress={this.divide} style={styles.menuTouchable}>
-          <Text style={styles.instructions}>{'Divide'}</Text>
-        </Touchable>
-        <Touchable onPress={goBack} style={styles.menuTouchable}>
-          <Text style={styles.instructions}>{'Back'}</Text>
-        </Touchable>
-      </View>
+      <ImageBackground
+        source={require('../../image/background.jpg')}
+        style={{flex: 1}}>
+        <View style={styles.container}>
+          <Text style={styles.welcome}>
+            {'Choose Option'}
+          </Text>
+          <Touchable onPress={this.plus} style={styles.menuTouchable}>
+            <Text style={styles.instructions}>{'Plus'}</Text>
+          </Touchable>
+          <Touchable onPress={this.minus} style={styles.menuTouchable}>
+            <Text style={styles.instructions}>{'Minus'}</Text>
+          </Touchable>
+          <Touchable onPress={this.multiple} style={styles.menuTouchable}>
+            <Text style={styles.instructions}>{'Multiple'}</Text>
+          </Touchable>
+          <Touchable onPress={this.divide} style={styles.menuTouchable}>
+            <Text style={styles.instructions}>{'Divide'}</Text>
+          </Touchable>
+          <Touchable onPress={goBack} style={styles.menuTouchable}>
+            <Text style={styles.instructions}>{'Back'}</Text>
+          </Touchable>
+        </View>
+      </ImageBackground>
     );
   }
 }

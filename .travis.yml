@@ -16,10 +16,6 @@ matrix:
       - extra-google-google_play_services
       - extra-google-m2repository
       - addon-google_apis-google-23
-      - build-tools-25.0.1
-      - android-25
-      - build-tools-26.0.1
-      - android-26
       - android-sdk-preview-license-.+
       - android-sdk-license-.+
 branches:

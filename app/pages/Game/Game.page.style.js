@@ -3,14 +3,15 @@ export default {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#EEEEEE',
+    backgroundColor: '#FFF',
+    margin: 40,
+    opacity: 0.8
   },
   welcome: {
     fontSize: 50,
     textAlign: 'center',
-    marginTop: 15,
-    marginRight: 15,
-    marginBottom: 15,
+    margin: 10,
+    color: 'black'
   },
   instructions: {
     textAlign: 'left',
