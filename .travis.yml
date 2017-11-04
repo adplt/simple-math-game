@@ -25,6 +25,10 @@ before_install:
 - nvm install 6.9.5
 - node --version
 - npm install -g yarn
+- chmod +x ./scripts/before.sh
+- chmod +x ./scripts/build.sh
+- chmod +x ./scripts/package.sh
+- chmod +x ./scripts/uploader.sh
 install:
 - yarn
 cache:
