@@ -2,4 +2,4 @@
 
 echo "Decrypting keystore."
 
-openssl aes-256-cbc -k "$KEY_STORE_PASSWORD" -in scripts/android/keystore/travel-app.keystore.enc -d -a -out android/app/travel-app.keystore
+openssl aes-256-cbc -k "$KEY_STORE_PASSWORD" -in scripts/android/keystore/game-buat-dina.keystore.enc -d -a -out android/app/game-buat-dina.keystore
