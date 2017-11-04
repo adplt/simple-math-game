@@ -29,7 +29,8 @@ export default class Game extends Component {
     showAnswer: false,
     scrollX: new Animated.Value(0),
     scrollY: new Animated.Value(0),
-    showModal: false
+    showModal: false,
+    stopTime: false
   }
 
   decidedChoose = 0;
@@ -38,8 +39,6 @@ export default class Game extends Component {
   rand1 = 0;
   rand2 = 0;
   randomAnswer = 0;
-  interval = 5;
-  showModal = false;
 
   _onInterpolate = (inputRange, outputRange) => this.state.scrollY.interpolate({
     inputRange,
@@ -55,21 +54,14 @@ export default class Game extends Component {
 
   componentDidMount () {
     setInterval(() => {
-      const {firstTime} = this.state;
-      if (this.interval > 0 && firstTime) this.interval = this.interval - 1; // this.setState({interval: interval - 1});
-      if (this.interval === 0) {
-        clearInterval(this.interval);
-        this.showModal = true;
-      }
+      const {firstTime, interval, stopTime} = this.state;
+      if (firstTime && !stopTime) this.setState({interval: interval - 1}); // this.interval = this.interval - 1;
+      if (interval === 0) this.setState({showModal: true});
     }, 1000);
   }
 
-  componentWillUnmount () {
-    clearInterval(this.interval);
-    if (this.interval === 0) this.showModal = true;
-  }
-
   answerRawOneOption = () => {
+    const {interval} = this.state;
     const answer = chunk(this.answerOption, 2);
     const answerRawOne = answer[0];
 
@@ -88,13 +80,14 @@ export default class Game extends Component {
       <RenderAnswer
         key={i}
         onPress={this.validateAnswer}
-        disabled={this.interval === 0}
+        disabled={interval === 0}
         value={val}
         opacity={opacity}
       />);
   }
 
   answerRawTwoOption = () => {
+    const {interval} = this.state;
     const answer = chunk(this.answerOption, 2);
     const answerRawTwo = answer[1];
 
@@ -114,7 +107,7 @@ export default class Game extends Component {
       <RenderAnswer
         key={i}
         onPress={this.validateAnswer}
-        disabled={this.interval === 0}
+        disabled={interval === 0}
         value={val}
         opacity={opacity}
       />);
@@ -230,11 +223,12 @@ export default class Game extends Component {
 
   closeModal = () => {
     const {resetToBoard} = this.props;
-    this.showModal = false;
-    resetToBoard();
+    this.setState({showModal: false, stopTime: true});
+    setTimeout(() => resetToBoard(), 1000);
   }
 
   render () {
+    const {showModal, interval} = this.state;
     const {navigation, score} = this.props;
     const {menu, operator} = navigation.state.params;
     return (
@@ -244,7 +238,7 @@ export default class Game extends Component {
         {
           menu === 'count' ?
             <View style={styles.container}>
-              <Text style={styles.instructions}>{`${'Score: '}${score} ${'Interval: '} ${this.interval < 0 ? 0 : this.interval}`}</Text>
+              <Text style={styles.instructions}>{`${'Score: '}${score} ${'Interval: '} ${interval < 0 ? 0 : interval}`}</Text>
               <Text style={styles.welcome}>
                 {`${this.rand1} ${operator === '/' ? ':' : operator} ${this.rand2} ${' = ?'}`}
               </Text>
@@ -260,7 +254,7 @@ export default class Game extends Component {
               </View>
             </View> :
             <View style={styles.container}>
-              <Text style={styles.instructions}>{`${'Score:'} ${score} ${'Interval: '} ${this.interval}`}</Text>
+              <Text style={styles.instructions}>{`${'Score:'} ${score} ${'Interval: '} ${interval < 0 ? 0 : interval}`}</Text>
               <Text style={styles.welcome}>
                 {`${this.rand1} ${operator === '/' ? ':' : operator} ${this.rand2} ${'='} ${this.randomAnswer} ${'?'}`}
               </Text>
@@ -278,7 +272,7 @@ export default class Game extends Component {
               </View>
             </View>
         }
-        <OverlayModal showModal={this.showModal} closeModal={this.closeModal} />
+        <OverlayModal showModal={showModal} closeModal={this.closeModal} />
       </ImageBackground>
     );
   }
