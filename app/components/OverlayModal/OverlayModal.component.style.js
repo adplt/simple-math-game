@@ -7,7 +7,8 @@ export default {
   container: {
     flex: 1,
     backgroundColor: '#FFF',
-    height: 100
+    height: 100,
+    borderRadius: 30,
   },
   title: {
     fontSize: 40,

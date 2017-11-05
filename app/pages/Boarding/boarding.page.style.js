@@ -5,7 +5,8 @@ export default {
     alignItems: 'center',
     backgroundColor: '#FFF',
     margin: 40,
-    opacity: 0.8
+    opacity: 0.8,
+    borderRadius: 30,
   },
   title: {
     fontSize: 50,

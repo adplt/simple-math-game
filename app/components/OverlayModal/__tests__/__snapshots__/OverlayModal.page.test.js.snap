@@ -60,6 +60,7 @@ exports[`OverlayModal component renders correctly 1`] = `
       style={
         Object {
           "backgroundColor": "#FFF",
+          "borderRadius": 30,
           "flex": 1,
           "height": 100,
         }
