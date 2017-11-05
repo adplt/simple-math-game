@@ -6,7 +6,7 @@ import ScrollableOverlayModal from '../ScrollableOverlayModal/ScrollableOverlayM
 class OverlaySpinner extends React.Component {
 
   static propTypes = {
-    showSpinner: PropTypes.bool
+    showSpinner: PropTypes.bool,
   }
 
   render () {

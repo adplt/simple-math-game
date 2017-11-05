@@ -1,5 +1,3 @@
-// import {theme} from '../../styles/core.styles';
-
 export default {
   container: {
     backgroundColor: '#CCC'

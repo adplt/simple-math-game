@@ -1,5 +1,5 @@
 export default {
-  welcome: {
+  container: {
     margin: 10,
   },
   halfWidth: {

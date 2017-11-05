@@ -2,9 +2,7 @@ import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import {NetInfo, View, StatusBar, Animated, Easing, AppState} from 'react-native';
 import noop from 'lodash/noop';
-// import {theme} from '../../styles/core.styles';
 import styles from './OfflineBar.component.style';
-// import {language} from '../../config/language';
 import result from 'lodash/result';
 
 export default class OfflineBar extends Component {
@@ -13,21 +11,18 @@ export default class OfflineBar extends Component {
     setNetworkStatus: PropTypes.func,
     networkStatus: PropTypes.object,
     resetNetworkBar: PropTypes.func,
-    highlightText: PropTypes.bool
+    highlightText: PropTypes.bool,
   }
 
   animationConstants = {
     DURATION: 800,
     TO_VALUE: 4,
     INPUT_RANGE: [0, .5, 1, 1.5, 2, 2.5, 3, 3.5, 4],
-    OUTPUT_RANGE: [0, -15, 0, 15, 0, -15, 0, 15, 0]
+    OUTPUT_RANGE: [0, -15, 0, 15, 0, -15, 0, 15, 0],
   }
 
-  _handleAppStateChange = (nextAppState) => {
-    if (nextAppState === 'active') {
-      NetInfo.isConnected.fetch().then(this.props.setNetworkStatus);
-    }
-  }
+  _handleAppStateChange = (nextAppState) =>
+    nextAppState === 'active' ? NetInfo.isConnected.fetch().then(this.props.setNetworkStatus) : null;
 
   componentWillMount () {
     NetInfo.isConnected.addEventListener('connectionChange', this.props.setNetworkStatus);
@@ -59,7 +54,7 @@ export default class OfflineBar extends Component {
     }).start();
   }
 
-  render () { // language.OFFLINE__ERROR
+  render () {
     const interpolated = this.animation.interpolate({
       inputRange: this.animationConstants.INPUT_RANGE,
       outputRange: this.animationConstants.OUTPUT_RANGE
@@ -69,7 +64,7 @@ export default class OfflineBar extends Component {
     };
     const isConnected = result(this.props, 'networkStatus.isConnected', true);
     return !isConnected ?
-      <View style={[styles.container]}>
+      <View style={styles.container}>
         <StatusBar backgroundColor={'#d83e0f'} />
         <Animated.Text style={[styles.offlineText, animationStyle]}>{'Can not connect to network'}</Animated.Text>
       </View> : null;

@@ -7,13 +7,13 @@ export default {
     margin: 40,
     opacity: 0.8
   },
-  welcome: {
+  question: {
     fontSize: 50,
     textAlign: 'center',
     margin: 10,
     color: 'black'
   },
-  instructions: {
+  note: {
     textAlign: 'left',
     alignItems: 'flex-start',
     color: '#333333',
@@ -22,7 +22,7 @@ export default {
   row: {
     flexDirection: 'row'
   },
-  halfWidth: {
+  flexOne: {
     flex: 1
   }
 };

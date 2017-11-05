@@ -9,7 +9,6 @@ import styles from './Game.page.style';
 import Touchable from '../../components/Touchable/Touchable.component';
 import PropTypes from 'prop-types';
 import chunk from 'lodash/chunk';
-import noop from 'lodash/noop';
 import OverlayModal from '../../components/OverlayModal/OverlayModal.component';
 import RenderAnswer from '../../components/RenderAnswer/RenderAnswer.component';
 
@@ -18,8 +17,9 @@ export default class Game extends Component {
   static propTypes = {
     navigation: PropTypes.object,
     updateScore: PropTypes.func,
+    resetToBoard: PropTypes.func,
     score: PropTypes.number,
-    resetToBoard: PropTypes.func
+    highScore: PropTypes.number,
   }
 
   state = {
@@ -30,7 +30,7 @@ export default class Game extends Component {
     scrollX: new Animated.Value(0),
     scrollY: new Animated.Value(0),
     showModal: false,
-    stopTime: false
+    stopTime: false,
   }
 
   decidedChoose = 0;
@@ -39,6 +39,7 @@ export default class Game extends Component {
   rand1 = 0;
   rand2 = 0;
   randomAnswer = 0;
+  score = 0;
 
   _onInterpolate = (inputRange, outputRange) => this.state.scrollY.interpolate({
     inputRange,
@@ -55,8 +56,12 @@ export default class Game extends Component {
   componentDidMount () {
     setInterval(() => {
       const {firstTime, interval, stopTime} = this.state;
+      const {updateScore} = this.props;
       if (firstTime && !stopTime) this.setState({interval: interval - 1}); // this.interval = this.interval - 1;
-      if (interval === 0) this.setState({showModal: true});
+      if (interval === 0) {
+        updateScore(this.score);
+        this.setState({showModal: true});
+      }
     }, 1000);
   }
 
@@ -150,7 +155,6 @@ export default class Game extends Component {
   validateAnswer = (value) => () => {
     const {navigation} = this.props;
     const {menu} = navigation.state.params;
-    let {updateScore = noop, score} = this.props;
     const {firstTime} = this.state;
     if (menu === 'count') {
       if (this.rightResult === value) {
@@ -158,8 +162,7 @@ export default class Game extends Component {
         this.decidedChoose = this.decided();
         this.generateRandom();
         this.setState({validAnswer: true});
-        score += 1;
-        updateScore(score += 1);
+        this.score += 1;
         this.validateRandomQuestion();
       }
     } else {
@@ -168,8 +171,7 @@ export default class Game extends Component {
         this.decidedChoose = this.decided();
         this.generateRandom();
         this.setState({validAnswer: true});
-        score += 1;
-        updateScore(score += 1);
+        this.score += 1;
         this.validateRandomQuestion();
       }
     }
@@ -234,18 +236,18 @@ export default class Game extends Component {
 
   render () {
     const {showModal, interval, showAnswer} = this.state;
-    const {navigation, score} = this.props;
+    const {navigation, score, highScore} = this.props;
     const {menu, operator} = navigation.state.params;
     this.showAnswer(menu);
     return (
       <ImageBackground
         source={require('../../image/background.jpg')}
-        style={{flex: 1}}>
+        style={styles.flexOne}>
         {
           menu === 'count' ?
             <View style={styles.container}>
-              <Text style={styles.instructions}>{`${'Score: '}${score} ${'Interval: '} ${interval < 0 ? 0 : interval}`}</Text>
-              <Text style={styles.welcome}>
+              <Text style={styles.note}>{`${'Score: '}${this.score} ${'Time: '} ${interval < 0 ? 0 : interval}`}</Text>
+              <Text style={styles.question}>
                 {`${this.rand1} ${operator === '/' ? ':' : operator} ${this.rand2} ${' = ?'}`}
               </Text>
               <View style={styles.row}>
@@ -260,25 +262,25 @@ export default class Game extends Component {
               </View>
             </View> :
             <View style={styles.container}>
-              <Text style={styles.instructions}>{`${'Score:'} ${score} ${'Interval: '} ${interval < 0 ? 0 : interval}`}</Text>
-              <Text style={styles.welcome}>
+              <Text style={styles.note}>{`${'Score:'} ${this.score} ${'Time: '} ${interval < 0 ? 0 : interval}`}</Text>
+              <Text style={styles.question}>
                 {`${this.rand1} ${operator === '/' ? ':' : operator} ${this.rand2} ${'='} ${this.randomAnswer} ${'?'}`}
               </Text>
               <View style={styles.row}>
-                <Touchable style={styles.halfWidth} onPress={this.validateAnswer(true)}>
-                  <Text style={styles.welcome}>
+                <Touchable style={styles.flexOne} onPress={this.validateAnswer(true)}>
+                  <Text style={styles.question}>
                     {'True'}
                   </Text>
                 </Touchable>
-                <Touchable style={styles.halfWidth} onPress={this.validateAnswer(false)}>
-                  <Text style={styles.welcome}>
+                <Touchable style={styles.flexOne} onPress={this.validateAnswer(false)}>
+                  <Text style={styles.question}>
                     {'False'}
                   </Text>
                 </Touchable>
               </View>
             </View>
         }
-        <OverlayModal showModal={showModal} closeModal={this.closeModal} />
+        <OverlayModal showModal={showModal} closeModal={this.closeModal} data={{score, highScore}}/>
       </ImageBackground>
     );
   }

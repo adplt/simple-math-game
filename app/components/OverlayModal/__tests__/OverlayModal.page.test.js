@@ -4,7 +4,11 @@ import OverlayModal from '../OverlayModal.component';
 
 describe('OverlayModal component', () => {
   it('renders correctly', () => {
-    const tree = renderer.create(<OverlayModal />).toJSON();
+    const data = {
+      score: 0,
+      highScore: 12
+    };
+    const tree = renderer.create(<OverlayModal data={data} />).toJSON();
     expect(tree).toMatchSnapshot();
   });
 });

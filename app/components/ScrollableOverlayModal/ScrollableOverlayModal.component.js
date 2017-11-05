@@ -9,7 +9,7 @@ class ScrollableOverlayModal extends React.Component {
   static propTypes = {
     children: PropTypes.object,
     visible: PropTypes.bool,
-    onDismiss: PropTypes.func
+    onDismiss: PropTypes.func,
   }
 
   render () {

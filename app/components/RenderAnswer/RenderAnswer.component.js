@@ -13,7 +13,7 @@ export default class RenderAnswer extends Component {
     onPress: PropTypes.func,
     disabled: PropTypes.bool,
     value: PropTypes.number,
-    opacity: PropTypes.object
+    opacity: PropTypes.object,
   }
 
   render () {
@@ -23,7 +23,7 @@ export default class RenderAnswer extends Component {
         style={styles.halfWidth}
         onPress={onPress(value)}
         disabled={disabled}>
-        <Animated.View style={styles.welcome}>
+        <Animated.View style={styles.container}>
           <Text style={styles.answer}>
             {value}
           </Text>

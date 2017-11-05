@@ -62,13 +62,9 @@ export default class AddRemoveExample extends Component {
     LayoutAnimation.easeInEaseOut();
   }
 
-  _onPressAddView = () => {
-    this.setState((state) => ({views: [...state.views, {}]}));
-  }
+  _onPressAddView = () => this.setState((state) => ({views: [...state.views, {}]}));
 
-  _onPressRemoveView = () => {
-    this.setState((state) => ({views: state.views.slice(0, -1)}));
-  }
+  _onPressRemoveView = () => this.setState((state) => ({views: state.views.slice(0, -1)}));
 
   render () {
     return (

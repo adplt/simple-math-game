@@ -4,6 +4,7 @@ import Navigator from '../../routes/index.routes';
 import networkStatus from './networkStatus.reducer';
 import highlightText from './highlightText.reducer';
 import score from './updateScore.reducer';
+import highScore from './updateHighScore.reducer';
 
 const nav = (state, action) => (
   Navigator.router.getStateForAction(action, state)
@@ -14,7 +15,8 @@ const rootReducer = combineReducers({
   form: formReducer,
   networkStatus,
   highlightText,
-  score
+  score,
+  highScore,
 });
 
 export default rootReducer;

@@ -2,7 +2,10 @@ import * as createAction from '../actions/index';
 import {NavigationActions} from 'react-navigation';
 
 export function updateScore (payload) {
-  return (dispatch) => {
+  return (dispatch, getState) => {
+    const state = getState();
+    const {highScore} = state;
+    Number(highScore) < Number(payload) ? dispatch(createAction.updateHighScore(payload)) : null;
     dispatch(createAction.updateScore(payload));
   };
 }

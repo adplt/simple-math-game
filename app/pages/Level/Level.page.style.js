@@ -24,5 +24,8 @@ export default {
   },
   menuTouchable: {
     padding: 10
+  },
+  background: {
+    flex: 1
   }
 };

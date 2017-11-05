@@ -33,7 +33,7 @@ export default class Level extends Component {
     return (
       <ImageBackground
         source={require('../../image/background.jpg')}
-        style={{flex: 1}}>
+        style={styles.background}>
         <View style={styles.container}>
           <Text style={styles.welcome}>
             {'Choose Option'}

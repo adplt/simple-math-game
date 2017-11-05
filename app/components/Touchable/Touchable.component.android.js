@@ -9,7 +9,7 @@ class Touchable extends Component {
     disabled: PropTypes.bool,
     onPress: PropTypes.func,
     children: PropTypes.node,
-    highlightColor: PropTypes.string
+    highlightColor: PropTypes.string,
   }
 
   state = {
@@ -18,16 +18,16 @@ class Touchable extends Component {
   }
 
   componentWillUnmount () {
-    clearTimeout(this.state.timer);
+    const {timer} = this.state;
+    clearTimeout(timer);
   }
 
   callOnceInInterval = (functionTobeCalled, interval = 600) => (...args) => {
-    if (!this.state.isCalled) {
+    const {isCalled, timer} = this.state;
+    if (!isCalled) {
       this.setState({isCalled: true});
-      clearTimeout(this.state.timer);
-      this.setState({timer: setTimeout(() => {
-        this.setState({isCalled: false});
-      }, interval)});
+      clearTimeout(timer);
+      this.setState({timer: setTimeout(() => this.setState({isCalled: false}), interval)});
       return functionTobeCalled(...args);
     }
     return;

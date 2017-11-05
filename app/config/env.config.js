@@ -3,8 +3,8 @@
 
 const defaults = {
   ENV: 'dev',
-  MOCKAPI: false,
-  URL: 'http://localhost',
+  MOCKAPI: true,
+  URL: 'http://localhost:8080',
   fixtures: require('./fixtures.config')
 };
 

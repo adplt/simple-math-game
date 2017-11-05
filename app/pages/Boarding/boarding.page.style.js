@@ -7,13 +7,13 @@ export default {
     margin: 40,
     opacity: 0.8
   },
-  welcome: {
+  title: {
     fontSize: 50,
     textAlign: 'center',
     margin: 10,
     color: 'black'
   },
-  instructions: {
+  menu: {
     textAlign: 'left',
     alignItems: 'flex-start',
     color: '#333333',
@@ -21,5 +21,8 @@ export default {
   },
   menuTouchable: {
     padding: 10
+  },
+  background: {
+    flex: 1
   }
 };

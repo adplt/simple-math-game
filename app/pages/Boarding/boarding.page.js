@@ -43,23 +43,23 @@ export default class Boarding extends Component {
     return (
       <ImageBackground
         source={require('../../image/background.jpg')}
-        style={{flex: 1}}>
+        style={styles.background}>
         <View style={styles.container}>
-          <Text style={styles.welcome}>
+          <Text style={styles.title}>
             {'Mathematic'}
           </Text>
           <Touchable onPress={this.goToCounting} style={styles.menuTouchable}>
-            <Text style={styles.instructions}>
+            <Text style={styles.menu}>
               {'Counting'}
             </Text>
           </Touchable>
           <Touchable onPress={this.goToChoosing} style={styles.menuTouchable}>
-            <Text style={styles.instructions}>
+            <Text style={styles.menu}>
               {'Choosing'}
             </Text>
           </Touchable>
           <Touchable onPress={this.onPressLeaderBoard} style={styles.menuTouchable}>
-            <Text style={styles.instructions}>
+            <Text style={styles.menu}>
               {'Leader Board'}
             </Text>
           </Touchable>

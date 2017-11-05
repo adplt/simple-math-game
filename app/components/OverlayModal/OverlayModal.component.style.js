@@ -1,3 +1,8 @@
+const halfWidth = {
+  margin: 10,
+  flex: 1,
+};
+
 export default {
   container: {
     flex: 1,
@@ -5,18 +10,23 @@ export default {
     height: 100
   },
   title: {
-    fontSize: 50,
-    textAlign: 'center',
-    color: 'black'
-  },
-  welcome: {
     fontSize: 40,
     textAlign: 'center',
     margin: 10,
     color: 'black',
-    paddingTop: 20
+    paddingVertical: 20
   },
-  note: {
+  close: {
+    fontSize: 30,
+    textAlign: 'center',
+    margin: 20
+  },
+  row: {
+    flexDirection: 'row'
+  },
+  halfWidthLeft: [halfWidth, {textAlign: 'left'}],
+  halfWidthRight: [halfWidth, {textAlign: 'right'}],
+  content: {
     margin: 20
   }
 };

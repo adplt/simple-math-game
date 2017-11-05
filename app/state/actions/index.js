@@ -13,6 +13,7 @@ export const HIDE_MODAL = 'HIDE_MODAL';
 
 // Game
 export const UPDATE_SCORE = 'UPDATE_SCORE';
+export const UPDATE_HIGH_SCORE = 'UPDATE_HIGH_SCORE';
 
 /* ************************************************************************************************************************* */
 
@@ -29,3 +30,4 @@ export const hideModal = createAction(HIDE_MODAL);
 
 // Game
 export const updateScore = createAction(UPDATE_SCORE);
+export const updateHighScore = createAction(UPDATE_HIGH_SCORE);
