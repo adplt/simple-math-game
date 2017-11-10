@@ -12,6 +12,7 @@
 #import <React/RCTBundleURLProvider.h>
 #import <React/RCTRootView.h>
 #import "SplashScreen.h"
+#import "TestFairy.h"
 
 @implementation AppDelegate
 
@@ -32,6 +33,7 @@
   rootViewController.view = rootView;
   self.window.rootViewController = rootViewController;
   [self.window makeKeyAndVisible];
+  [TestFairy begin:@"5dc4e51f3fbcd3eaa0c50f5db320cda80cbcfd02"];
   [SplashScreen show];
   return YES;
 }

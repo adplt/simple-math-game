@@ -16,10 +16,10 @@ NOTIFY="on"
 # If AUTO_UPDATE is "on" all users will be prompt to update to this build next time they run the app
 AUTO_UPDATE="on"
 
-# The maximum recording duration for every test.
+# The maximum recording duration for every test. 
 MAX_DURATION="10m"
 
-# Is video recording enabled for this build. valid values:  "on", "off", "wifi"
+# Is video recording enabled for this build. valid values:  "on", "off", "wifi" 
 VIDEO="wifi"
 
 # Comment text will be included in the email sent to testers
@@ -34,7 +34,7 @@ usage() {
 	echo "Usage: testfairy-upload-ios.sh APP_FILENAME"
 	echo
 }
-
+	
 verify_tools() {
 
 	# Windows users: this script requires curl. If not installed please get from http://cygwin.com/
