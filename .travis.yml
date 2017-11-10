@@ -30,6 +30,7 @@ before_install:
 - chmod +x ./scripts/package.sh
 - chmod +x ./scripts/uploader.sh
 - chmod +x ./scripts/android/add-keystore.sh
+- chmod +x ./scripts/ios/sign.sh
 install:
 - yarn
 cache:
