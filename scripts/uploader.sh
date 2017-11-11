@@ -7,10 +7,10 @@ fi
 
 if [[ "$DEV" = "IOS" ]]; then
   echo "Uploading ipa to TestFairy..."
-  $TRAVIS_BUILD_DIR/scripts/tf_uploader.sh "$TRAVIS_BUILD_DIR/ios/build/Products/IPA/GameBuatDina.ipa"
+  ./scripts/tf_uploader.sh "./ios/build/Products/IPA/GameBuatDina.ipa"
 fi
 
 if [[ "$DEV" = "ANDROID" ]]; then
   echo "Uploading apk to TestFairy..."
-  $TRAVIS_BUILD_DIR/scripts/tf_uploader.sh "$TRAVIS_BUILD_DIR/android/app/build/outputs/apk/app-release.apk"
+  ./scripts/tf_uploader.sh "./android/app/build/outputs/apk/app-release.apk"
 fi
