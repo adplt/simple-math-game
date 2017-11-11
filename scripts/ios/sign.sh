@@ -8,5 +8,5 @@
 
 # running exportArchive
 echo "Export archive to create IPA file"
-xcodebuild -exportArchive -archivePath ./ios/build/Products/ubyapp.xcarchive -exportOptionsPlist ./scripts/ios/exportOptions-Release.plist -exportPath ./ios/build/Products/IPA
+xcodebuild -exportArchive -archivePath ./ios/Production/GameBuatDina.xcarchive -exportOptionsPlist ./scripts/ios/exportOptions-Release.plist -exportPath ./ios/Production/IPA
 #xcodebuild -quiet -exportArchive -archivePath ./ios/build/Products/ubyapp.xcarchive -exportSigningIdentity "iPhone Developer: Balu Ramananda (6J3VWRWZ52)" -exportPath ./ios/build/Products/ubyapp

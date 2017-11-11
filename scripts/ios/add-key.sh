@@ -3,7 +3,7 @@
 echo "Decrypting and exporting keys."
 
 echo "Decrypting provision profile"
-openssl aes-256-cbc -k "$KEY_PASSWORD" -in scripts/ios/profile/ubyapp_Ad_Hoc.mobileprovision.enc -d -a -out scripts/ios/profile/ubyapp_Ad_Hoc.mobileprovision
+openssl aes-256-cbc -k "f3d!23456" -in scripts/ios/certs/ubyapp_Ad_Hoc.mobileprovision.enc -d -a -out scripts/ios/profile/ubyapp_Ad_Hoc.mobileprovision
 echo "Decrypting distribution cert"
 openssl aes-256-cbc -k "$KEY_PASSWORD" -in scripts/ios/certs/dist.cer.enc -d -a -out scripts/ios/certs/dist.cer
 echo "Decrypting distribution key"
@@ -40,5 +40,5 @@ security set-key-partition-list -S apple-tool:,apple: -s -k travis  ios-build.ke
 # Put the provisioning profile in place
 echo "putting provisions in place"
 mkdir -p ~/Library/MobileDevice/Provisioning\ Profiles
-cp "./scripts/ios/profile/$PROFILE_NAME.mobileprovision" ~/Library/MobileDevice/Provisioning\ Profiles/
+cp "./scripts/ios/certs/ubyapp_Ad_Hoc.mobileprovision" ~/Library/MobileDevice/Provisioning\ Profiles/
 echo "provisions in place"

@@ -6,7 +6,7 @@ fi
 
 if [[ "$DEV" = "IOS" ]]; then
   #xcodebuild -project $PWD/ios/ubyapp.xcodeproj -scheme ubyapp -configuration RELEASE OBJROOT=$PWD/ios/build SYMROOT=$PWD/ios/build -destination 'platform=iOS Simulator,name=iPhone 6,OS=9.3'
-  xcodebuild archive -project $PWD/ios/ubyapp.xcodeproj -scheme ubyapp -configuration RELEASE -derivedDataPath $PWD/ios/build -archivePath $PWD/ios/build/Products/ubyapp.xcarchive
+  xcodebuild archive -project ./ios/GameBuatDina.xcodeproj -scheme GameBuatDina -configuration RELEASE -derivedDataPath ./ios/build -archivePath ./ios/Production/GameBuatDina.xcarchive
 fi
 
 if [[ "$DEV" = "ANDROID" ]]; then
