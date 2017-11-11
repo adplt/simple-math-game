@@ -1,13 +1,6 @@
 import {NavigationActions} from 'react-navigation';
 import * as createAction from '../actions/index';
 
-export function goBack () {
-  return (dispatch) => dispatch(NavigationActions.back());
-}
+export const goBack = () => (dispatch) => dispatch(NavigationActions.back());
 
-export function showResult () {
-  return (dispatch) => {
-    dispatch(createAction.showSpinner());
-    
-  };
-}
+export const showResult = () => (dispatch) => dispatch(createAction.showSpinner());

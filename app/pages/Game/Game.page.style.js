@@ -5,7 +5,8 @@ export default {
     alignItems: 'center',
     backgroundColor: '#FFF',
     margin: 40,
-    opacity: 0.8
+    opacity: 0.75,
+    borderRadius: 30,
   },
   question: {
     fontSize: 50,

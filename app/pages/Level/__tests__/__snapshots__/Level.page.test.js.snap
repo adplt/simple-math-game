@@ -32,10 +32,11 @@ exports[`Level component renders correctly 1`] = `
       Object {
         "alignItems": "center",
         "backgroundColor": "#FFF",
+        "borderRadius": 30,
         "flex": 1,
         "justifyContent": "center",
         "margin": 40,
-        "opacity": 0.8,
+        "opacity": 0.75,
       }
     }
   >

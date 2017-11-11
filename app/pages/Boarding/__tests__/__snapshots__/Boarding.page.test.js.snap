@@ -36,7 +36,7 @@ exports[`Boarding component renders correctly 1`] = `
         "flex": 1,
         "justifyContent": "center",
         "margin": 40,
-        "opacity": 0.8,
+        "opacity": 0.75,
       }
     }
   >

@@ -32,7 +32,7 @@ export default class Level extends Component {
     const {goBack} = this.props;
     return (
       <ImageBackground
-        source={require('../../image/background.jpg')}
+        source={require('../../image/background.png')}
         style={styles.background}>
         <View style={styles.container}>
           <Text style={styles.welcome}>

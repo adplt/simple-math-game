@@ -8,7 +8,8 @@
 		"ios": "rndebugger-open && react-native run-ios",
 		"android": "cd android && ./gradlew clean && cd .. && rndebugger-open && react-native run-android",
 		"lint": "echo 'Running lint...' && eslint app/",
-		"prepush": "npm run lint && npm run test"
+		"prepush": "npm run lint && npm run test",
+		"test:watch": "jest --verbose --watch"
 	},
 	"dependencies": {
 		"axios": "^0.16.2",

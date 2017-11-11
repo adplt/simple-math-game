@@ -5,9 +5,8 @@ const halfWidth = {
 
 export default {
   container: {
-    flex: 1,
+    flex: 0,
     backgroundColor: '#FFF',
-    height: 100,
     borderRadius: 30,
   },
   title: {

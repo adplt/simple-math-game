@@ -5,7 +5,7 @@ import {
   View,
   Alert
 } from 'react-native';
-import styles from './boarding.page.style';
+import styles from './Boarding.page.style';
 import SplashScreen from 'react-native-splash-screen';
 import Touchable from '../../components/Touchable/Touchable.component';
 import PropTypes from 'prop-types';
@@ -32,7 +32,7 @@ export default class Boarding extends Component {
 
   onPressLeaderBoard = (params) => {
     const {navigation} = this.props;
-    return typeof atob === 'undefined' ? navigation.navigate('Example', params) :
+    return typeof atob === 'undefined' ? navigation.navigate('LeaderBoard', params) :
       Alert.alert('Warning', 'Please to disabled React Native Debugger', [{
         text: 'Ok',
         onPress: noop
@@ -42,7 +42,7 @@ export default class Boarding extends Component {
   render () {
     return (
       <ImageBackground
-        source={require('../../image/background.jpg')}
+        source={require('../../image/background.png')}
         style={styles.background}>
         <View style={styles.container}>
           <Text style={styles.title}>

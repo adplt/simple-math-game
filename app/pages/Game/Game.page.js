@@ -241,7 +241,7 @@ export default class Game extends Component {
     this.showAnswer(menu);
     return (
       <ImageBackground
-        source={require('../../image/background.jpg')}
+        source={require('../../image/background.png')}
         style={styles.flexOne}>
         {
           menu === 'count' ?
