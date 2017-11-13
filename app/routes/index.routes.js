@@ -1,6 +1,6 @@
 import React from 'react';
 import {StackNavigator} from 'react-navigation';
-import Boarding from '../pages/Boarding/Boarding.page';
+import Boarding from '../containers/Boarding.container';
 import Level from '../containers/Level.container';
 import Game from '../containers/Game.container';
 import Example from '../pages/Expample/Example.page';

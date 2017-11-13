@@ -1,0 +1,13 @@
+{
+  "url": "https://mathematic-game.herokuapp.com/leaderBoard",
+  "requestBody": {
+
+  },
+  "response": {
+    "responseCode": "00",
+    "responseStatus": "Success",
+    "response": {
+
+    }
+  }
+}

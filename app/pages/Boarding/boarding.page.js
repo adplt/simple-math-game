@@ -3,7 +3,6 @@ import {
   ImageBackground,
   Text,
   View,
-  Alert
 } from 'react-native';
 import styles from './Boarding.page.style';
 import SplashScreen from 'react-native-splash-screen';
@@ -15,6 +14,7 @@ export default class Boarding extends Component {
 
   static propTypes = {
     navigation: PropTypes.object,
+    getLeaderBoard: PropTypes.func,
   }
 
   componentDidMount () {
@@ -30,16 +30,8 @@ export default class Boarding extends Component {
 
   goToChoosing = () => this.onPress({menu: 'choose'});
 
-  onPressLeaderBoard = (params) => {
-    const {navigation} = this.props;
-    return typeof atob === 'undefined' ? navigation.navigate('LeaderBoard', params) :
-      Alert.alert('Warning', 'Please to disabled React Native Debugger', [{
-        text: 'Ok',
-        onPress: noop
-      }]);
-  }
-
   render () {
+    const {getLeaderBoard = noop} = this.props;
     return (
       <ImageBackground
         source={require('../../image/background.png')}
@@ -58,7 +50,7 @@ export default class Boarding extends Component {
               {'Choosing'}
             </Text>
           </Touchable>
-          <Touchable onPress={this.onPressLeaderBoard} style={styles.menuTouchable}>
+          <Touchable onPress={getLeaderBoard} style={styles.menuTouchable}>
             <Text style={styles.menu}>
               {'Leader Board'}
             </Text>

@@ -1,11 +1,11 @@
-import {HIGHLIGHT_NETWORK_BAR, RESET_NETWORK_BAR} from '../actions/index.action';
+import {SHOW_SPINNER, HIDE_SPINNER} from '../actions/index.action';
 
 export default function highlightText (state = false, action) {
   switch (action.type) {
-  case HIGHLIGHT_NETWORK_BAR: {
+  case SHOW_SPINNER: {
     return true;
   }
-  case RESET_NETWORK_BAR: {
+  case HIDE_SPINNER: {
     return false;
   }
   default: {

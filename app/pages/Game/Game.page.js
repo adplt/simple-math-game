@@ -11,6 +11,7 @@ import PropTypes from 'prop-types';
 import chunk from 'lodash/chunk';
 import OverlayModal from '../../components/OverlayModal/OverlayModal.component';
 import RenderAnswer from '../../components/RenderAnswer/RenderAnswer.component';
+import OverlaySpinner from '../../components/OverlaySpinner/OverlaySpinner.component';
 
 export default class Game extends Component {
 
@@ -20,6 +21,8 @@ export default class Game extends Component {
     resetToBoard: PropTypes.func,
     score: PropTypes.number,
     highScore: PropTypes.number,
+    showSpinner: PropTypes.bool,
+    showModal: PropTypes.bool,
   }
 
   state = {
@@ -29,7 +32,6 @@ export default class Game extends Component {
     showAnswer: false,
     scrollX: new Animated.Value(0),
     scrollY: new Animated.Value(0),
-    showModal: false,
     stopTime: false,
   }
 
@@ -57,10 +59,10 @@ export default class Game extends Component {
     setInterval(() => {
       const {firstTime, interval, stopTime} = this.state;
       const {updateScore} = this.props;
-      if (firstTime && !stopTime) this.setState({interval: interval - 1}); // this.interval = this.interval - 1;
+      if (firstTime && !stopTime) this.setState({interval: interval - 1});
       if (interval === 0) {
+        this.setState({stopTime: true});
         updateScore(this.score);
-        this.setState({showModal: true});
       }
     }, 1000);
   }
@@ -223,20 +225,19 @@ export default class Game extends Component {
     this.rightAnswer(operator);
   }
 
-  closeModal = () => {
-    const {resetToBoard} = this.props;
-    this.setState({showModal: false, stopTime: true});
-    setTimeout(() => resetToBoard(), 1000);
-  }
-
   showAnswer = (menu) => {
     const {stopTime} = this.state;
     menu === 'count' && !stopTime ? setTimeout(() => this.setState({showAnswer: true}), 1000) : null;
   }
 
+  closeModal = () => {
+    const {resetToBoard} = this.props;
+    resetToBoard();
+  }
+
   render () {
-    const {showModal, interval, showAnswer} = this.state;
-    const {navigation, score, highScore} = this.props;
+    const {interval, showAnswer} = this.state;
+    const {navigation, score, highScore, showSpinner, showModal, resetToBoard} = this.props;
     const {menu, operator} = navigation.state.params;
     this.showAnswer(menu);
     return (
@@ -280,7 +281,8 @@ export default class Game extends Component {
               </View>
             </View>
         }
-        <OverlayModal showModal={showModal} closeModal={this.closeModal} data={{score, highScore}}/>
+        <OverlayModal showModal={showModal} closeModal={resetToBoard} data={{score, highScore}}/>
+        <OverlaySpinner showSpinner={showSpinner} />
       </ImageBackground>
     );
   }

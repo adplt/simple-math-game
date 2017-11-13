@@ -4,7 +4,7 @@ import {connect} from 'react-redux';
 import {View, StatusBar} from 'react-native';
 // import {theme} from '../styles/core.styles';
 import OverlaySpinner from '../components/OverlaySpinner/OverlaySpinner.component';
-import {setNetworkStatus, resetNetworkBar} from '../state/actions/index';
+import {setNetworkStatus, resetNetworkBar} from '../state/actions/index.action';
 import {ConnectedRoutes} from '../routes/router';
 import OfflineBar from '../components/OfflineBar/OfflineBar.component';
 // import {setCurrentLanguage} from '../state/thunks/common.thunks.js';

@@ -4,8 +4,8 @@
 const defaults = {
   ENV: 'dev',
   MOCKAPI: true,
-  URL: 'http://localhost:8080',
-  fixtures: require('./fixtures.config')
+  URL: 'https://mathematic-game.herokuapp.com',
+  fixtures: require('./fixture.config')
 };
 
 const setEnv = (envKey, value) => {

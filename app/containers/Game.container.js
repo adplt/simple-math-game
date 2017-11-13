@@ -4,7 +4,9 @@ import {updateScore as updateScoreThunk, resetToBoard as resetToBoardThunk} from
 
 const mapStateToProps = (state) => ({
   score: state.score,
-  highScore: state.highScore
+  highScore: state.highScore,
+  showSpinner: state.spinner,
+  showModal: state.modal,
 });
 
 const mapDispatchToProps = (dispatch) => ({

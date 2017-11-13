@@ -3,7 +3,7 @@ import env from '../config/env.config';
 // import uuidV4 from 'uuid/v4';
 import result from 'lodash/result';
 import {filterObjectProperties} from './transformer.util';
-import {highlightNetworkBar} from '../state/actions/index';
+import {highlightNetworkBar} from '../state/actions/index.action';
 // import tracker from '../utils/googleAnalytics.util';
 
 // Interceptor that sets the defaultPayload

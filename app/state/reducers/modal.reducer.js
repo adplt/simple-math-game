@@ -1,11 +1,11 @@
-import {HIGHLIGHT_NETWORK_BAR, RESET_NETWORK_BAR} from '../actions/index.action';
+import {SHOW_MODAL, HIDE_MODAL} from '../actions/index.action';
 
 export default function highlightText (state = false, action) {
   switch (action.type) {
-  case HIGHLIGHT_NETWORK_BAR: {
+  case SHOW_MODAL: {
     return true;
   }
-  case RESET_NETWORK_BAR: {
+  case HIDE_MODAL: {
     return false;
   }
   default: {

@@ -1,6 +1,13 @@
 import {SERVER_URL, endpoints} from '../config/api.config';
 import axios from 'axios';
-import {getStatusValidatorInterceptor, mockInterceptor, addDefaultPayloadInterceptor, demoAccountInterceptor, getNoNetWorkInterceptor, removeFalsyValues} from './interceptor.util';
+import {
+  getStatusValidatorInterceptor,
+  mockInterceptor,
+  addDefaultPayloadInterceptor,
+  demoAccountInterceptor,
+  getNoNetWorkInterceptor,
+  removeFalsyValues
+} from './interceptor.util';
 
 const baseConfig = {
   baseURL: SERVER_URL,
@@ -10,7 +17,6 @@ const baseConfig = {
   withCredentials: true,
   validateStatus: () => true,
   cancelToken: null,
-  // onDownloadProgress: () => {}, // Left this as a reference incase we need it
 };
 
 export const get = (endpoint, options = {}) => {

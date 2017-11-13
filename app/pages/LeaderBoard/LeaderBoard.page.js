@@ -10,17 +10,18 @@ import Touchable from '../../components/Touchable/Touchable.component';
 import noop from 'lodash/noop';
 import PropTypes from 'prop-types';
 import result from 'lodash/result';
+import OverlaySpinner from '../../components/OverlaySpinner/OverlaySpinner.component';
 
 export default class LeaderBoard extends Component {
 
   static propTypes = {
     goBack: PropTypes.func,
-    getLeaderBoard: PropTypes.func
+    leaderBoard: PropTypes.array,
+    showSpinner: PropTypes.bool,
   }
 
   render () {
-    const {goBack, getLeaderBoard} = this.props;
-    const leaderBoard = getLeaderBoard();
+    const {goBack, leaderBoard = [], showSpinner} = this.props;
     return (
       <ImageBackground
         source={require('../../image/background.png')}
@@ -52,6 +53,7 @@ export default class LeaderBoard extends Component {
             </Text>
           </Touchable>
         </View>
+        <OverlaySpinner showSpinner={showSpinner} />
       </ImageBackground>
     );
   }

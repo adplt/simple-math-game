@@ -1,5 +1,5 @@
 import {NavigationActions} from 'react-navigation';
-import * as createAction from '../actions/index';
+import * as createAction from '../actions/index.action';
 
 export const goBack = () => (dispatch) => dispatch(NavigationActions.back());
 

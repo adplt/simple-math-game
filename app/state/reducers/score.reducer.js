@@ -1,4 +1,4 @@
-import {UPDATE_SCORE} from '../actions/index';
+import {UPDATE_SCORE} from '../actions/index.action';
 
 export default function updateScore (state = 0, action) {
   switch (action.type) {
