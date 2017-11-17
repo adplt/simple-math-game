@@ -5,7 +5,6 @@ import networkStatus from './networkStatus.reducer';
 import highlightText from './highlightText.reducer';
 import score from './score.reducer';
 import highScore from './highScore.reducer';
-
 import modal from './modal.reducer';
 import spinner from './spinner.reducer';
 import leaderBoard from './leaderBoard.reducer';
