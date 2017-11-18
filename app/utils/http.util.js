@@ -4,9 +4,7 @@ import {
   getStatusValidatorInterceptor,
   mockInterceptor,
   addDefaultPayloadInterceptor,
-  demoAccountInterceptor,
   getNoNetWorkInterceptor,
-  removeFalsyValues
 } from './interceptor.util';
 
 const baseConfig = {
@@ -47,9 +45,9 @@ export const initializeHTTPInterceptors = (store) => {
   // REQUEST INTERCEPTORS
   axios.interceptors.request.use(mockInterceptor, Promise.reject);
   axios.interceptors.request.use(getNoNetWorkInterceptor(store), Promise.reject);
-  axios.interceptors.request.use(demoAccountInterceptor, Promise.reject);
+  // axios.interceptors.request.use(demoAccountInterceptor, Promise.reject);
   axios.interceptors.request.use(addDefaultPayloadInterceptor(store), Promise.reject);
-  axios.interceptors.request.use(removeFalsyValues, Promise.reject);
+  // axios.interceptors.request.use(removeFalsyValues, Promise.reject);
   // RESPONSE INTERCEPTORS
   axios.interceptors.response.use(getStatusValidatorInterceptor(store), Promise.reject);
 };

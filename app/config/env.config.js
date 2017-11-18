@@ -3,7 +3,7 @@
 
 const defaults = {
   ENV: 'dev',
-  MOCKAPI: true,
+  MOCKAPI: false,
   URL: 'https://mathematic-game.herokuapp.com',
   fixtures: require('./fixture.config')
 };
