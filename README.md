@@ -1,1 +1,3 @@
-# Game Buat Dina
+# Simple Math Game
+
+Game Buat Dina
