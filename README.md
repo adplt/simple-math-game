@@ -1,3 +1,3 @@
 # Simple Math Game
 
-Game Buat Dina
+A simple game using React Native
